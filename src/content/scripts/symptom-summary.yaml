@@ -1,0 +1,26 @@
+title: Symptom Summary
+description: A template to help explain what’s been going on before an appointment.
+fields:
+  - name: startDate
+    label: When did it start?
+  - name: mainSymptoms
+    label: What are the main symptoms?
+  - name: whatYouTried
+    label: What have you already tried?
+  - name: whatYouNeed
+    label: What kind of help are you hoping for?
+template: |
+  To whom it may concern,
+
+  I wanted to share this summary ahead of our upcoming appointment.
+
+  I've been experiencing the following symptoms since {{startDate}}:  
+  {{mainSymptoms}}
+
+  So far, I've tried:  
+  {{whatYouTried}}
+
+  I’m hoping to figure out:  
+  {{whatYouNeed}}
+
+  Thank you.

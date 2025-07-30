@@ -1,26 +1,30 @@
 title: Symptom Summary
-description: A template to help explain what’s been going on before an appointment.
+description: A template to help explain what’s been going on before an appointment — so you don’t have to say everything out loud.
 fields:
   - name: startDate
-    label: When did it start?
+    label: When did things start or first change?
   - name: mainSymptoms
-    label: What are the main symptoms?
+    label: What symptoms or changes have you noticed?
   - name: whatYouTried
-    label: What have you already tried?
+    label: What have you tried so far (treatments, changes, etc)?
   - name: whatYouNeed
-    label: What kind of help are you hoping for?
+    label: What kind of support or answers are you hoping for?
+
 template: |
   To whom it may concern,
 
-  I wanted to share this summary ahead of our upcoming appointment.
+  I’m sharing this brief summary ahead of our upcoming appointment, in case it helps streamline the conversation.
 
-  I've been experiencing the following symptoms since {{startDate}}:  
+  I’ve been dealing with the following symptoms or concerns since {{startDate}}:
+
   {{mainSymptoms}}
 
-  So far, I've tried:  
+  To try and address or understand what's going on, I've already tried:
+
   {{whatYouTried}}
 
-  I’m hoping to figure out:  
+  At this point, I’m hoping to:
+
   {{whatYouNeed}}
 
-  Thank you.
+  Thank you for taking the time to review this in advance. It’s been a lot to manage, and I appreciate anything we can do to make the next steps clearer.

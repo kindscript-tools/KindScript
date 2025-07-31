@@ -9,6 +9,8 @@ fields:
     label: What have you tried so far (treatments, changes, etc)?
   - name: whatYouNeed
     label: What kind of support or answers are you hoping for?
+  - name: extraInfo
+    label: Is there anything else you'd like to share?
 
 template: |
   To whom it may concern,
@@ -26,5 +28,11 @@ template: |
   At this point, I’m hoping to:
 
   {{whatYouNeed}}
+
+  {{#if extraInfo}}
+  Other context:
+
+  {{extraInfo}}
+  {{/if}}
 
   Thank you for taking the time to review this in advance. It’s been a lot to manage, and I appreciate anything we can do to make the next steps clearer.

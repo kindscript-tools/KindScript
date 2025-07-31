@@ -17,7 +17,7 @@ const script = yaml.load(fileContents);
         padding: 2rem;
         max-width: 700px;
         margin: auto;
-        background-color: #fdfcf9; /* soft beige background */
+        background-color: #fdfcf9;
         color: #222;
       }
 
@@ -77,6 +77,7 @@ const script = yaml.load(fileContents);
         position: relative;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
       }
+
       label {
         font-size: 1.05rem;
         font-weight: 600;
@@ -84,11 +85,37 @@ const script = yaml.load(fileContents);
         text-shadow: 0 1px 0 #fff;
       }
 
+      #pdf-wrapper {
+        background: white;
+        padding: 1rem;
+      }
     </style>
   </head>
   <body>
     <h1>{script.title}</h1>
     <p>{script.description}</p>
+
+    <section style="margin-top: 1.5rem; margin-bottom: 2rem;">
+      <h2>What this tool is</h2>
+      <p>This page helps you write a clear summary of what’s been going on — symptoms, changes, questions, or needs. It’s useful for medical visits, refill requests, or hard conversations when your brain’s at capacity.</p>
+
+      <h3>🔒 Private by design</h3>
+      <p>Everything you type stays on your device and never gets sent anywhere — no servers, no databases, no tracking. Your information is processed entirely in your browser.</p>
+
+      <h3>🩺 Not medical advice</h3>
+      <p>This is a writing tool to help you advocate for yourself or a loved one. It isn’t a substitute for professional medical advice, diagnosis, or treatment.</p>
+
+      <p style="margin-top: 1.75rem; margin-bottom: 1.5rem; font-weight: 500;">
+        🛠️ Ready to fill it out? <a href="#script-form" style="text-decoration: underline; color: #2b6cb0;">Jump to the form</a>
+      </p>
+
+      <h3>📝 Example output</h3>
+      <blockquote style="border-left: 4px solid #ccc; padding-left: 1rem; color: #444;">
+        “Over the past few weeks, I’ve had daily fatigue and headaches that are affecting my ability to focus and work. I’ve tried adjusting my sleep and reducing screen time, but it hasn’t helped. I’d like to discuss possible causes and treatment options.”
+      </blockquote>
+    </section>
+
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1.25rem 0 1.5rem;" />
 
     <section class="form-container">
       <form id="script-form">
@@ -109,15 +136,29 @@ const script = yaml.load(fileContents);
     <h3 style="font-size: 1.1rem; margin-top: 1rem; margin-bottom: 0.25rem;">
       📝 Generated Summary
     </h3>
-    <div class="preview" id="output">(Fill out the form and click Generate)</div>
+    <div id="pdf-wrapper">
+      <div class="preview" id="output">(Fill out the form and click Generate)</div>
+    </div>
 
     <button type="button" id="copy-btn" style="margin-top: 0.75rem;">Copy to Clipboard</button>
     <button type="button" id="print-btn" style="margin-top: 0.25rem;">Print This</button>
+    <button type="button" id="download-txt-btn" style="margin-top: 0.25rem;">Download as .txt</button>
+    <button type="button" id="download-pdf-btn" style="margin-top: 0.25rem;">Download as .pdf</button>
 
     <script id="template-data" type="text/plain" set:html={script.template} />
 
     <script type="module">
-      // Generate button logic
+      function getSummaryContent() {
+        const text = document.getElementById('output').textContent;
+        const today = new Date().toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+        return `Symptom Summary\nDate: ${today}\n\n${text}`;
+      }
+
       function generateOutput() {
         const form = document.getElementById('script-form');
         const data = {};
@@ -126,30 +167,93 @@ const script = yaml.load(fileContents);
         });
 
         const template = document.getElementById('template-data').textContent;
-        const output = template.replace(/{{(.*?)}}/g, (_, key) => data[key.trim()] || '');
+
+        const output = template
+          .replace(/{{#if (.*?)}}([\s\S]*?){{\/if}}/g, (_, key, content) => {
+            return data[key.trim()] ? content.replace(`{{${key.trim()}}}`, data[key.trim()]) : '';
+          })
+          .replace(/{{(.*?)}}/g, (_, key) => data[key.trim()] || '');
+
         document.getElementById('output').textContent = output;
       }
 
       document.getElementById('generate-btn').addEventListener('click', generateOutput);
 
-      // Copy to Clipboard logic
       document.getElementById('copy-btn').addEventListener('click', () => {
-        const text = document.getElementById('output').textContent;
-        navigator.clipboard.writeText(text).then(() => {
+        const fullText = getSummaryContent();
+        navigator.clipboard.writeText(fullText).then(() => {
           alert('Copied to clipboard!');
         });
       });
 
-      // Print logic
       document.getElementById('print-btn').addEventListener('click', () => {
-        const content = document.getElementById('output').textContent;
+        const content = getSummaryContent();
         const printWindow = window.open('', '_blank');
-        printWindow.document.write(`
-          <pre style="font-family: Georgia, serif; font-size: 1rem; white-space: pre-wrap;">${content}</pre>
-        `);
+        printWindow.document.write(`<pre style="font-family: Georgia, serif; font-size: 1rem; white-space: pre-wrap;">${content}</pre>`);
         printWindow.document.close();
         printWindow.print();
       });
+
+      document.getElementById('download-txt-btn').addEventListener('click', () => {
+        const content = getSummaryContent();
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'symptom-summary.txt';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById('download-pdf-btn').addEventListener('click', () => {
+        import('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js')
+          .then(() => {
+            const outputEl = document.getElementById('output');
+
+            // Clone it so we can add a header + date to the top
+            const clone = outputEl.cloneNode(true);
+
+            // Create a wrapper div
+            const wrapper = document.createElement('div');
+            wrapper.style.padding = '1rem';
+            wrapper.style.fontFamily = 'Georgia, serif';
+            wrapper.style.fontSize = '1rem';
+            wrapper.style.lineHeight = '1.6';
+            wrapper.style.whiteSpace = 'pre-wrap';
+
+            const title = document.createElement('h2');
+            title.innerText = 'Symptom Summary';
+            title.style.marginTop = '0';
+
+            const date = document.createElement('p');
+            date.innerText = new Date().toLocaleDateString(undefined, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+            date.style.marginBottom = '1.5rem';
+
+            wrapper.appendChild(title);
+            wrapper.appendChild(date);
+            wrapper.appendChild(clone);
+
+            document.body.appendChild(wrapper); // Must be in DOM to render correctly
+
+            html2pdf()
+              .set({
+                margin: 0.5,
+                filename: 'symptom-summary.pdf',
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+              })
+              .from(wrapper)
+              .save()
+              .then(() => {
+                document.body.removeChild(wrapper);
+              });
+          });
+      });
+
     </script>
   </body>
 </html>

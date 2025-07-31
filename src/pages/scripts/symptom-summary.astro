@@ -20,15 +20,12 @@ const script = yaml.load(fileContents);
         background-color: #fdfcf9;
         color: #222;
       }
-
       h1, h2, h3 {
-        font-family: 'Segoe UI', system-ui, sans-serif;
         font-weight: 700;
         color: #222;
         line-height: 1.3;
         margin-bottom: 0.25rem;
       }
-
       .form-container {
         background: #fff6f1;
         border: 1px solid #ddd;
@@ -37,7 +34,6 @@ const script = yaml.load(fileContents);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         margin-top: 1rem;
       }
-
       textarea, input {
         width: 100%;
         margin-top: 0.25rem;
@@ -47,7 +43,6 @@ const script = yaml.load(fileContents);
         border: 1px solid #ccc;
         border-radius: 5px;
       }
-
       button {
         padding: 0.75rem;
         font-size: 1rem;
@@ -55,14 +50,12 @@ const script = yaml.load(fileContents);
         color: #fff;
         border: none;
         border-radius: 5px;
-        margin-top: 1rem;
+        margin-top: 0.5rem;
         cursor: pointer;
       }
-
       button:hover {
         background: #2d3748;
       }
-
       .preview {
         margin-top: 0.5rem;
         margin-bottom: 1rem;
@@ -77,17 +70,11 @@ const script = yaml.load(fileContents);
         position: relative;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
       }
-
       label {
         font-size: 1.05rem;
         font-weight: 600;
         color: #333;
         text-shadow: 0 1px 0 #fff;
-      }
-
-      #pdf-wrapper {
-        background: white;
-        padding: 1rem;
       }
     </style>
   </head>
@@ -136,27 +123,25 @@ const script = yaml.load(fileContents);
     <h3 style="font-size: 1.1rem; margin-top: 1rem; margin-bottom: 0.25rem;">
       📝 Generated Summary
     </h3>
-    <div id="pdf-wrapper">
-      <div class="preview" id="output">(Fill out the form and click Generate)</div>
-    </div>
+    <div class="preview" id="output">(Fill out the form and click Generate)</div>
 
-    <button type="button" id="copy-btn" style="margin-top: 0.75rem;">Copy to Clipboard</button>
-    <button type="button" id="print-btn" style="margin-top: 0.25rem;">Print This</button>
-    <button type="button" id="download-txt-btn" style="margin-top: 0.25rem;">Download as .txt</button>
-    <button type="button" id="download-pdf-btn" style="margin-top: 0.25rem;">Download as .pdf</button>
+    <button type="button" id="copy-btn">Copy to Clipboard</button>
+    <button type="button" id="print-btn">Print This</button>
+    <button type="button" id="download-txt-btn">Download as .txt</button>
 
     <script id="template-data" type="text/plain" set:html={script.template} />
 
     <script type="module">
-      function getSummaryContent() {
-        const text = document.getElementById('output').textContent;
-        const today = new Date().toLocaleDateString(undefined, {
+      function getFormattedDate() {
+        return new Date().toLocaleDateString(undefined, {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
         });
+      }
 
-        return `Symptom Summary\nDate: ${today}\n\n${text}`;
+      function getFullContent(summaryText) {
+        return `Symptom Summary\nDate: ${getFormattedDate()}\n\n${summaryText}`;
       }
 
       function generateOutput() {
@@ -174,84 +159,41 @@ const script = yaml.load(fileContents);
           })
           .replace(/{{(.*?)}}/g, (_, key) => data[key.trim()] || '');
 
+        const fullText = getFullContent(output);
+
         document.getElementById('output').textContent = output;
+
+        // Update PDF content
+        document.getElementById('pdf-content').innerHTML = `
+          <pre style="font-family: Georgia, serif; font-size: 1rem; white-space: pre-wrap;">
+${fullText}
+          </pre>`;
       }
 
       document.getElementById('generate-btn').addEventListener('click', generateOutput);
 
       document.getElementById('copy-btn').addEventListener('click', () => {
-        const fullText = getSummaryContent();
-        navigator.clipboard.writeText(fullText).then(() => {
-          alert('Copied to clipboard!');
-        });
+        const fullText = getFullContent(document.getElementById('output').textContent);
+        navigator.clipboard.writeText(fullText).then(() => alert('Copied to clipboard!'));
       });
 
       document.getElementById('print-btn').addEventListener('click', () => {
-        const content = getSummaryContent();
+        const fullText = getFullContent(document.getElementById('output').textContent);
         const printWindow = window.open('', '_blank');
-        printWindow.document.write(`<pre style="font-family: Georgia, serif; font-size: 1rem; white-space: pre-wrap;">${content}</pre>`);
+        printWindow.document.write(`<pre style="font-family: Georgia, serif; font-size: 1rem; white-space: pre-wrap;">${fullText}</pre>`);
         printWindow.document.close();
         printWindow.print();
       });
 
       document.getElementById('download-txt-btn').addEventListener('click', () => {
-        const content = getSummaryContent();
-        const blob = new Blob([content], { type: 'text/plain' });
+        const fullText = getFullContent(document.getElementById('output').textContent);
+        const blob = new Blob([fullText], { type: 'text/plain' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
         a.download = 'symptom-summary.txt';
         a.click();
         URL.revokeObjectURL(url);
-      });
-
-      document.getElementById('download-pdf-btn').addEventListener('click', () => {
-        import('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js')
-          .then(() => {
-            const outputEl = document.getElementById('output');
-
-            // Clone it so we can add a header + date to the top
-            const clone = outputEl.cloneNode(true);
-
-            // Create a wrapper div
-            const wrapper = document.createElement('div');
-            wrapper.style.padding = '1rem';
-            wrapper.style.fontFamily = 'Georgia, serif';
-            wrapper.style.fontSize = '1rem';
-            wrapper.style.lineHeight = '1.6';
-            wrapper.style.whiteSpace = 'pre-wrap';
-
-            const title = document.createElement('h2');
-            title.innerText = 'Symptom Summary';
-            title.style.marginTop = '0';
-
-            const date = document.createElement('p');
-            date.innerText = new Date().toLocaleDateString(undefined, {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            });
-            date.style.marginBottom = '1.5rem';
-
-            wrapper.appendChild(title);
-            wrapper.appendChild(date);
-            wrapper.appendChild(clone);
-
-            document.body.appendChild(wrapper); // Must be in DOM to render correctly
-
-            html2pdf()
-              .set({
-                margin: 0.5,
-                filename: 'symptom-summary.pdf',
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-              })
-              .from(wrapper)
-              .save()
-              .then(() => {
-                document.body.removeChild(wrapper);
-              });
-          });
       });
 
     </script>

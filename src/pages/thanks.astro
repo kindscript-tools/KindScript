@@ -1,47 +1,24 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Thanks – KindScript</title>
-    <meta http-equiv="refresh" content="5;url=/" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <style>
-      body {
-        font-family: system-ui, sans-serif;
-        background: #fdfcf9;
-        color: #222;
-        padding: 2rem;
-        max-width: 700px;
-        margin: auto;
-        text-align: center;
-      }
+<BaseLayout title="Thanks – KindScript">
+  <style>
+    h1 {
+      font-size: 1.5rem;
+    }
+  </style>
 
-      h1 {
-        font-size: 1.75rem;
-      }
+  <h1>✅ Thanks for your suggestion.</h1>
+  <p>Every idea helps make KindScript more useful for someone else facing a hard moment.</p>
+  <p>We read everything. Nothing is saved beyond this submission.</p>
+  <h2>💛 Take good care!</h2>
+  <p><em>(You’ll be redirected to the homepage in a moment.)</em></p>
+  <p><a href="/">← Go back now</a></p>
 
-      p {
-        margin: 1rem 0;
-      }
-
-      a {
-        color: #4a5568;
-        font-weight: 600;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>✅ Thanks for your suggestion.</h1>
-    <p>Every idea helps make KindScript more useful for someone else facing a hard moment.</p>
-    <p>We read everything. Nothing is saved beyond this submission.</p>
-    <h2>💛 Take good care!</h2>
-    <p><em>(You’ll be redirected to the homepage in a moment.)</em></p>
-  </body>
-</html>
+  <script>
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 10000);
+  </script>
+</BaseLayout>

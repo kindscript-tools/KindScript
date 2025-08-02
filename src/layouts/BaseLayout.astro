@@ -1,0 +1,89 @@
+---
+const { title = "KindScript", description = "Scripts, resources, and support for doctor visits, insurance, meds, and more." } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/favicon-180x180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #fdfcf9;
+        color: #222;
+        padding: 2rem;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      h1, h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      :global(a),
+      :global(a:visited),
+      :global(a:active),
+      :global(a:focus) {
+        color: #4a5568;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      :global(a:hover) {
+        text-decoration: underline;
+      }
+
+      ul {
+        margin-top: 1rem;
+        padding-left: 1.25rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      .tagline {
+        margin-top: 0.25rem;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        font-style: italic;
+        color: #444;
+        text-align: center;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .logo-banner {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+
+      .section {
+        margin-top: 2.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <img src="/banner.png" alt="KindScript banner" class="logo-banner" />
+      <p class="tagline">
+        Helping you get through the hard parts of healthcare — one script at a time.
+      </p>
+    </div>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

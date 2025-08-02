@@ -1,127 +1,51 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" href="/favicon-180x180.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta charset="UTF-8" />
-    <title>KindScript – Tools for Hard Healthcare Moments</title>
-    <style>
-      body {
-        font-family: system-ui, sans-serif;
-        background: #fdfcf9;
-        color: #222;
-        padding: 2rem;
-        max-width: 700px;
-        margin: auto;
-      }
+<BaseLayout title="KindScript – Tools for when the system gets in the way of the care you deserve" description="Scripts, resources, and support for doctor visits, insurance, meds, and more.">
+  <div class="section">
+    <h2>📝 Start Here</h2>
+    <ul>
+      <li>🩺 <a href="/scripts/symptom-summary">Symptom Summary Generator</a></li>
+    </ul>
+  </div>
 
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-      }
+  <div class="section">
+    <h2>🧭 Coming Soon</h2>
+    <ul>
+      <li>💊 Medication + refill request scripts</li>
+      <li>📞 Insurance denial appeals + coverage questions</li>
+      <li>📅 Specialist referral + follow-up messages</li>
+      <li>📋 Printable prep for work leave requests, medical letters, and more</li>
+    </ul>
+  </div>
 
-      a {
-        color: #4a5568;
-        text-decoration: none;
-        font-weight: 600;
-      }
+  <div class="section">
+    <h2>💬 What is KindScript?</h2>
+    <p>
+      KindScript is a privacy-first tool designed for people navigating healthcare when everything feels overwhelming.
+      Whether you're exhausted, unsure what to say, or facing a wall of insurance red tape — this site helps you find the words.
+    </p>
+    <p>
+      No accounts. No data tracking. Just human-centered tools to support people through frustrating, emotional, and often unjust healthcare systems.
+    </p>
+  </div>
 
-      a:hover {
-        text-decoration: underline;
-      }
+  <div class="section">
+    <h2>💡 Have an idea?</h2>
+    <p>
+      Know a healthcare moment that needs a better script, guide, or checklist?
+      We’d love to hear your suggestion — no personal info required.
+    </p>
+    <p>
+      📝 <a href="/suggest">Submit your idea via form</a>
+    </p>
+  </div>
 
-      ul {
-        margin-top: 1rem;
-        padding-left: 1.25rem;
-      }
-
-      li {
-        margin-bottom: 0.5rem;
-      }
-
-      .tagline {
-        margin-top: 0.25rem; /* or even 0.25rem */
-        margin-bottom: 2rem;
-        font-size: 1rem;
-        font-style: italic;
-        color: #444;
-        text-align: center;
-      }
-
-      .section {
-        margin-top: 2.5rem;
-      }
-
-      .center {
-        text-align: center;
-      }
-
-      .logo-banner {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="center">
-      <img src="/banner.png" alt="KindScript banner" class="logo-banner" />
-      <p class="tagline">
-        Helping you get through the hard parts of healthcare — one script at a time.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>📝 Start Here</h2>
-      <ul>
-        <li>
-          🩺 <a href="/scripts/symptom-summary">Symptom Summary Generator</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🧭 Coming Soon</h2>
-      <ul>
-        <li>💊 Medication + refill request scripts</li>
-        <li>📞 Insurance denial appeals + coverage questions</li>
-        <li>🏥 Specialist referral + follow-up messages</li>
-        <li>📋 Printable prep for work leave requests, medical letters, and more</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>💬 What is KindScript?</h2>
-      <p>
-        KindScript is a privacy-first tool designed for people navigating healthcare when everything feels overwhelming. 
-        Whether you're exhausted, unsure what to say, or facing a wall of insurance red tape — this site helps you find the words.
-      </p>
-      <p>
-        No accounts. No data tracking. Just human-centered tools to support people through frustrating, emotional, and often unjust healthcare systems.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>💡 Have an idea?</h2>
-      <p>
-        Know a healthcare moment that needs a better script, guide, or checklist? 
-        We’d love to hear your suggestion — no personal info required.
-      </p>
-      <p>
-        📝 <a href="/suggest">Submit your idea via form</a>
-      </p>
-    </div>
-
-    <div class="section center">
-      <p>
-        🔗 Follow along on <a href="https://x.com/kind_script" target="_blank">X</a>
-        or <a href="https://ko-fi.com/kindscript" target="_blank">Ko-fi</a>.
-      </p>
-    </div>
-  </body>
-</html>
+  <div class="section center">
+    <p>
+      🔗 Follow along on <a href="https://x.com/kind_script" target="_blank">X</a>
+      or <a href="https://ko-fi.com/kindscript" target="_blank">Ko-fi</a>.
+    </p>
+  </div>
+</BaseLayout>

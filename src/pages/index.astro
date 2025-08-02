@@ -3,8 +3,13 @@
 
 <html lang="en">
   <head>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/favicon-180x180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8" />
-    <title>KindScript – Calm Tools for Overwhelming Tasks</title>
+    <title>KindScript – Tools for Hard Healthcare Moments</title>
     <style>
       body {
         font-family: system-ui, sans-serif;
@@ -32,28 +37,80 @@
 
       ul {
         margin-top: 1rem;
+        padding-left: 1.25rem;
       }
 
       li {
         margin-bottom: 0.5rem;
       }
+
+      .tagline {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        color: #444;
+      }
+
+      .section {
+        margin-top: 2.5rem;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .logo-banner {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 2rem;
+      }
     </style>
   </head>
   <body>
-    <h1>Welcome to KindScript</h1>
-    <p>
-	Clear, printable tools for medical visits, refill requests, and hard conversations.<br />
-	Especially when your brain’s at capacity.
-  	</p>
+    <div class="center">
+      <img src="/banner.png" alt="KindScript banner" class="logo-banner" />
+      <p class="tagline">
+        Tools for when the system gets in the way of the care you deserve.<br />
+        Scripts, resources, and support for doctor visits, insurance, meds, and more.<br />
+        Helping you get through the hard parts of healthcare — one script at a time.
+      </p>
+    </div>
 
-    <ul>
-      <li>
-        📝 <a href="/scripts/symptom-summary">Symptom Summary Generator</a>
-      </li>
-    </ul>
+    <div class="section">
+      <h2>📝 Start Here</h2>
+      <ul>
+        <li>
+          🩺 <a href="/scripts/symptom-summary">Symptom Summary Generator</a>
+        </li>
+      </ul>
+    </div>
 
-    <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
-      More tools, printable resources, and domain setup coming soon.
-    </p>
+    <div class="section">
+      <h2>🧭 Coming Soon</h2>
+      <ul>
+        <li>💊 Medication + refill request scripts</li>
+        <li>📞 Insurance denial appeals + coverage questions</li>
+        <li>🏥 Specialist referral + follow-up messages</li>
+        <li>📋 Printable prep for work leave requests, medical letters, and more</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>💬 What is KindScript?</h2>
+      <p>
+        KindScript is a privacy-first tool designed for people navigating healthcare when everything feels overwhelming. 
+        Whether you're exhausted, unsure what to say, or facing a wall of insurance red tape — this site helps you find the words.
+      </p>
+      <p>
+        No accounts. No data tracking. Just human-centered tools to support people through frustrating, emotional, 
+        and often unjust healthcare systems.
+      </p>
+    </div>
+
+    <div class="section center">
+      <p>
+        🔗 Follow along on <a href="https://x.com/kind_script" target="_blank">X</a>
+        or <a href="https://ko-fi.com/kindscript" target="_blank">Ko-fi</a>.
+      </p>
+    </div>
   </body>
 </html>

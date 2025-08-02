@@ -1,0 +1,103 @@
+---
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Suggest a Script – KindScript</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+    body {
+        font-family: system-ui, sans-serif;
+        background: #fdfcf9;
+        color: #222;
+        margin: 0;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container {
+        max-width: 700px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    a {
+        color: #4a5568;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+        font-style: italic;
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 2rem;
+    }
+
+    iframe {
+        width: 100%;
+        max-width: 100%;
+        height: 700px;
+        border: none;
+        margin-bottom: 2rem;
+        display: block;
+        box-sizing: border-box;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>💡 Suggest a New Script or Tool</h1>
+      <p class="tagline">No name or email required. Nothing is saved beyond your submission.</p>
+
+        <iframe
+        data-tally-src="https://tally.so/embed/3yaZ28?alignLeft=1&transparentBackground=1&hideTitle=1&hideDescription=1"
+        loading="lazy"
+        width="100%"
+        height="600"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="KindScript Suggest Form"
+        ></iframe>
+
+    </div>
+
+    <script>
+      var d = document,
+        w = "https://tally.so/widgets/embed.js",
+        v = function () {
+          if (typeof Tally !== "undefined") {
+            Tally.loadEmbeds();
+          } else {
+            d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+              e.src = e.dataset.tallySrc;
+            });
+          }
+        };
+
+      if (typeof Tally === "undefined") {
+        var s = d.createElement("script");
+        s.src = w;
+        s.onload = v;
+        s.onerror = v;
+        d.body.appendChild(s);
+      } else {
+        v();
+      }
+    </script>
+  </body>
+</html>

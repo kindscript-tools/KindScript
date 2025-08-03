@@ -13,6 +13,7 @@ const { title = "KindScript", description = "Scripts, resources, and support for
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/favicon-180x180.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/src/styles/global.css">
 
     <style>
       body {
@@ -29,6 +30,71 @@ const { title = "KindScript", description = "Scripts, resources, and support for
         margin-bottom: 0.5rem;
       }
 
+      ul {
+        margin-top: 1rem;
+        padding-left: 1.25rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .logo-banner {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+
+      .tagline {
+        margin-top: 0.25rem;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        font-style: italic;
+        color: #444;
+        text-align: center;
+      }
+
+      .section {
+        margin-top: 2.5rem;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        background-color: #fefcf9;
+        border-bottom: 1px solid #ddd;
+        font-size: 1rem;
+      }
+
+      .nav-links a {
+        margin: 0 0.75rem;
+        padding: 0.4rem 0.75rem;
+        border-radius: 999px; /* pill shape */
+        color: #333;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        background-color: #f0dcd2;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .nav-links a[aria-current="page"] {
+        font-weight: 600;
+        background-color: #f6e9e2;
+        color: #222;
+        text-decoration: none;
+      }
+
       :global(a),
       :global(a:visited),
       :global(a:active),
@@ -42,48 +108,161 @@ const { title = "KindScript", description = "Scripts, resources, and support for
         text-decoration: underline;
       }
 
-      ul {
-        margin-top: 1rem;
-        padding-left: 1.25rem;
+      /* Shared form + tool styles */
+      .tool-form {
+        background: #fef6f6;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 2rem;
       }
 
-      li {
-        margin-bottom: 0.5rem;
+      .form-inner {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
       }
 
-      .tagline {
-        margin-top: 0.25rem;
-        margin-bottom: 2rem;
+      .tool-form label {
+        font-weight: bold;
+        font-size: 1.05rem;
+        color: #333;
+      }
+
+      .tool-form input,
+      .tool-form textarea {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
         font-size: 1rem;
-        font-style: italic;
-        color: #444;
-        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
       }
 
-      .center {
-        text-align: center;
+      .btn {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        border: none;
+        margin-top: 0.5rem;
+        margin-right: 0.5rem;
       }
 
-      .logo-banner {
-        max-width: 100%;
-        height: auto;
+      .btn.dark {
+        background-color: #444;
+        color: #fff;
+      }
+
+      .btn.dark:hover {
+        background-color: #222;
+      }
+
+      .lift-up {
+        margin-top: 0.75rem;
         margin-bottom: 1rem;
       }
 
-      .section {
-        margin-top: 2.5rem;
+      .output-box {
+        background: #f6f6f6;
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 1rem 0;
+      }
+
+      .output-box textarea {
+        width: 100%;
+        font-family: monospace;
+        font-size: 1rem;
+        padding: 1rem;
+        border: none;
+        background: transparent;
+        resize: none;
+      }
+
+      .preview {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        white-space: pre-wrap;
+        background: #f9f9f9;
+        border: 1px solid #ccc;
+        padding: 1.5rem;
+        border-radius: 6px;
+        line-height: 1.6;
+        font-family: Georgia, serif;
+        font-size: 1.1rem;
+        position: relative;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      }
+
+      .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .medication-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        align-items: center;
+      }
+
+      .medication-row input {
+        flex: 1;
+        min-width: 120px;
+      }
+
+      .remove-med {
+        background: #eee;
+        color: #900;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+        padding: 0.5rem 0.75rem;
+        cursor: pointer;
+        height: 100%;
+        align-self: stretch;
+      }
+
+      .remove-med:hover {
+        background: #ddd;
       }
     </style>
+
   </head>
   <body>
+  <header style="background-color: #fdf8f3; padding: 1.5rem 1rem 1rem; border-bottom: 1px solid #ddd;">
     <div class="center">
       <img src="/banner.png" alt="KindScript banner" class="logo-banner" />
       <p class="tagline">
         Helping you get through the hard parts of healthcare — one script at a time.
       </p>
     </div>
-    <main>
-      <slot />
-    </main>
-  </body>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a 
+          href="/tools"
+          class={Astro.url.pathname === "/tools" ? "active" : ""}
+          aria-current={Astro.url.pathname === "/tools" ? "page" : undefined}
+        >
+          Tools
+        </a>
+        <a
+          href="/about"
+          class={Astro.url.pathname === "/about" ? "active" : ""}
+          aria-current={Astro.url.pathname === "/about" ? "page" : undefined}
+        >
+          About
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+</body>
 </html>

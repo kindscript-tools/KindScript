@@ -1,0 +1,229 @@
+/* /src/styles/global.css */
+
+/* === Tool Form Container === */
+.tool-form {
+  padding: 1.5rem;
+  background-color: #fef6f6;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+}
+
+/* Optional inner wrapper for slight horizontal padding */
+.form-inner {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+/* === Form Labels and Section Headings === */
+.tool-form label,
+.tool-form .form-section-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Emoji + Heading style */
+.tool-form .form-section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* === Input and Textarea Fields === */
+.tool-form input,
+.tool-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  box-sizing: border-box;
+}
+
+.tool-form textarea {
+  resize: vertical;
+}
+
+/* === Output Display Area === */
+.output-box {
+  background-color: #f8f9fa; /* or #f9fafb */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  margin-top: 1rem;
+}
+
+.output-box textarea,
+.output-box pre {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  font-family: monospace;
+  font-size: 0.85rem;
+  resize: none;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+}
+
+/* === Medication Field Layout (shared between tools) === */
+.medication-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+
+.medication-row input {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Remove medication button */
+.remove-med {
+  background: #eee;
+  color: #900;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  height: 100%;
+  align-self: stretch;
+}
+
+.remove-med:hover {
+  background: #ddd;
+}
+
+/* === Button Styles === */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Light button */
+.btn.light {
+  background-color: #f0f0f0;
+  color: #222;
+}
+
+.btn.light:hover {
+  background-color: #e2e2e2;
+}
+
+/* Dark button */
+.btn.dark {
+  background-color: #64748b; /* slate-500 */
+  color: #fff;
+}
+
+.btn.dark:hover {
+  background-color: #475569; /* slate-700 */
+}
+
+/* Utility spacing class */
+.lift-up {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* === Toggle Dropdown Style (e.g. for output format) === */
+.form-section-label select {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  max-width: 200px;
+}
+
+/* === Output Style Selector === */
+.output-style-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Match other input styles */
+.output-style-toggle select {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  max-width: 220px;
+}
+
+.output-style-note {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 1rem 0 1.5rem;
+  line-height: 1.5;
+}
+
+.output-example-box {
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.output-example-box pre {
+  background: #f8f9fa;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  margin-bottom: 1rem;
+}
+
+.output-style-example {
+  background: #f9f9f9;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #ddd;
+  font-size: 0.85rem;
+  font-family: monospace;
+  border-radius: 0.375rem;
+  color: #444;
+}
+
+.output-example {
+  background: #f9fafa;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  margin-bottom: 1.5rem;
+}

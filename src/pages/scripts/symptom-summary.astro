@@ -1,201 +1,86 @@
 ---
-import fs from 'fs';
-import path from 'path';
-import yaml from 'js-yaml';
-
-const filePath = path.resolve('./src/content/scripts/symptom-summary.yaml');
-const fileContents = fs.readFileSync(filePath, 'utf8');
-const script = yaml.load(fileContents);
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<html>
-  <head>
-    <title>{script.title}</title>
-    <meta charset="UTF-8" />
-    <style>
-      body {
-        font-family: 'Segoe UI', system-ui, sans-serif;
-        padding: 2rem;
-        max-width: 700px;
-        margin: auto;
-        background-color: #fdfcf9;
-        color: #222;
-      }
-      h1, h2, h3 {
-        font-weight: 700;
-        color: #222;
-        line-height: 1.3;
-        margin-bottom: 0.25rem;
-      }
-      .form-container {
-        background: #fff6f1;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-        margin-top: 1rem;
-      }
-      textarea, input {
-        width: 100%;
-        margin-top: 0.25rem;
-        margin-bottom: 1rem;
-        padding: 0.5rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-      button {
-        padding: 0.75rem;
-        font-size: 1rem;
-        background: #4a5568;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        margin-top: 0.5rem;
-        cursor: pointer;
-      }
-      button:hover {
-        background: #2d3748;
-      }
-      .preview {
-        margin-top: 0.5rem;
-        margin-bottom: 1rem;
-        white-space: pre-wrap;
-        background: #f9f9f9;
-        border: 1px solid #ccc;
-        padding: 1.5rem;
-        border-radius: 6px;
-        line-height: 1.6;
-        font-family: Georgia, serif;
-        font-size: 1.1rem;
-        position: relative;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-      }
-      label {
-        font-size: 1.05rem;
-        font-weight: 600;
-        color: #333;
-        text-shadow: 0 1px 0 #fff;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>{script.title}</h1>
-    <p>{script.description}</p>
 
-    <section style="margin-top: 1.5rem; margin-bottom: 2rem;">
-      <h2>What this tool is</h2>
-      <p>This page helps you write a clear summary of what’s been going on — symptoms, changes, questions, or needs. It’s useful for medical visits, refill requests, or hard conversations when your brain’s at capacity.</p>
+<BaseLayout title="Symptom Summary">
+  <div class="tool-page">
+    <h1>📝 Symptom Summary</h1>
 
-      <h3>🔒 Private by design</h3>
-      <p>Everything you type stays on your device and never gets sent anywhere — no servers, no databases, no tracking. Your information is processed entirely in your browser.</p>
+    <p>A template to help explain what’s been going on before an appointment — so you don’t have to say everything out loud.</p>
 
-      <h3>🩺 Not medical advice</h3>
-      <p>This is a writing tool to help you advocate for yourself or a loved one. It isn’t a substitute for professional medical advice, diagnosis, or treatment.</p>
+    <h2>🔍 What this tool is</h2>
+    <p>This page helps you write a clear summary of what’s been going on — symptoms, changes, questions, or needs. It’s useful for medical visits, refill requests, or hard conversations when your brain’s at capacity.</p>
+    <ul>
+      <li>🔒 <strong>Private by design</strong><br />Everything you type stays on your device and never gets sent anywhere — no servers, no databases, no tracking. Your information is processed entirely in your browser.</li>
+      <li>🩺 <strong>Not medical advice</strong><br />This is a writing tool to help you advocate for yourself or a loved one. It isn’t a substitute for professional medical advice, diagnosis, or treatment.</li>
+    </ul>
 
-      <p style="margin-top: 1.75rem; margin-bottom: 1.5rem; font-weight: 500;">
-        🛠️ Ready to fill it out? <a href="#script-form" style="text-decoration: underline; color: #2b6cb0;">Jump to the form</a>
-      </p>
+    <p>🛠️ Ready to fill it out? <a href="#symptom-form">Jump to the form</a></p>
 
-      <h3>📝 Example output</h3>
-      <blockquote style="border-left: 4px solid #ccc; padding-left: 1rem; color: #444;">
-        “Over the past few weeks, I’ve had daily fatigue and headaches that are affecting my ability to focus and work. I’ve tried adjusting my sleep and reducing screen time, but it hasn’t helped. I’d like to discuss possible causes and treatment options.”
-      </blockquote>
-    </section>
+    <h3>📝 Example output</h3>
+<div class="output-example-box">
+  <p><strong>Friendly style:</strong></p>
+  <pre class="output-example">
+Over the past few weeks, I’ve had daily fatigue and headaches that are affecting my ability to focus and work. I’ve tried adjusting my sleep and reducing screen time, but it hasn’t helped. I’d like to discuss possible causes and treatment options.</pre>
 
-    <hr style="border: none; border-top: 1px solid #ccc; margin: 1.25rem 0 1.5rem;" />
+  <p><strong>Bullet style:</strong></p>
+  <pre class="output-example">
+🕒 Started a few weeks ago
+🩺 Fatigue, headaches, difficulty concentrating
+🧪 Tried better sleep, less screen time
+🙋 Hoping to discuss causes + treatment options</pre>
+</div>
 
-    <section class="form-container">
-      <form id="script-form">
-        {script.fields.map(field => (
-          <div>
-            <label for={field.name}><strong>{field.label}</strong></label>
-            <textarea name={field.name} id={field.name}></textarea>
-          </div>
-        ))}
-        <button type="button" id="generate-btn">Generate</button>
-      </form>
-    </section>
+    <div class="section tool-form">
+      <div class="form-inner">
+        <form id="symptom-form">
+          <label>
+            When did things start or first change?
+            <textarea id="start"></textarea>
+          </label>
+          <label>
+            What symptoms or changes have you noticed?
+            <textarea id="symptoms"></textarea>
+          </label>
+          <label>
+            What have you tried so far (treatments, changes, etc)?
+            <textarea id="tried"></textarea>
+          </label>
+          <label>
+            What kind of support or answers are you hoping for?
+            <textarea id="support"></textarea>
+          </label>
+          <label>
+            Is there anything else you'd like to share?
+            <textarea id="extra"></textarea>
+          </label>
+          <button type="submit" class="btn dark">Generate</button>
+        </form>
+      </div>
+    </div>
 
-    <h2>Preview</h2>
-    <p style="margin-top: -0.25rem; color: #555; font-size: 1rem;">
-      You can copy, print, or hand this to your provider — whatever works best.
-    </p>
-    <h3 style="font-size: 1.1rem; margin-top: 1rem; margin-bottom: 0.25rem;">
-      📝 Generated Summary
-    </h3>
-    <div class="preview" id="output">(Fill out the form and click Generate)</div>
+    <div class="output-style-toggle">
+      📝 Output style:
+      <select id="style-select">
+        <option value="friendly">Friendly</option>
+        <option value="bullets">Bullet List</option>
+      </select>
+    </div>
 
-    <button type="button" id="copy-btn">Copy to Clipboard</button>
-    <button type="button" id="print-btn">Print This</button>
-    <button type="button" id="download-txt-btn">Download as .txt</button>
+    <h2>📋 Generated Summary</h2>
+    <p>You can copy, print, or hand this to your provider — whatever works best.</p>
+    <div id="output" class="output-box" contenteditable="true" role="textbox" aria-label="Generated summary">
+      (Fill out the form and click Generate)
+    </div>
 
-    <script id="template-data" type="text/plain" set:html={script.template} />
-
-    <script type="module">
-      function getFormattedDate() {
-        return new Date().toLocaleDateString(undefined, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-      }
-
-      function getFullContent(summaryText) {
-        return `Symptom Summary\nDate: ${getFormattedDate()}\n\n${summaryText}`;
-      }
-
-      function generateOutput() {
-        const form = document.getElementById('script-form');
-        const data = {};
-        [...form.elements].forEach(el => {
-          if (el.name) data[el.name] = el.value;
-        });
-
-        const template = document.getElementById('template-data').textContent;
-
-        const output = template
-          .replace(/{{#if (.*?)}}([\s\S]*?){{\/if}}/g, (_, key, content) => {
-            return data[key.trim()] ? content.replace(`{{${key.trim()}}}`, data[key.trim()]) : '';
-          })
-          .replace(/{{(.*?)}}/g, (_, key) => data[key.trim()] || '');
-
-        const fullText = getFullContent(output);
-
-        document.getElementById('output').textContent = output;
-
-        // Update PDF content
-        document.getElementById('pdf-content').innerHTML = `
-          <pre style="font-family: Georgia, serif; font-size: 1rem; white-space: pre-wrap;">
-${fullText}
-          </pre>`;
-      }
-
-      document.getElementById('generate-btn').addEventListener('click', generateOutput);
-
-      document.getElementById('copy-btn').addEventListener('click', () => {
-        const fullText = getFullContent(document.getElementById('output').textContent);
-        navigator.clipboard.writeText(fullText).then(() => alert('Copied to clipboard!'));
-      });
-
-      document.getElementById('print-btn').addEventListener('click', () => {
-        const fullText = getFullContent(document.getElementById('output').textContent);
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(`<pre style="font-family: Georgia, serif; font-size: 1rem; white-space: pre-wrap;">${fullText}</pre>`);
-        printWindow.document.close();
-        printWindow.print();
-      });
-
-      document.getElementById('download-txt-btn').addEventListener('click', () => {
-        const fullText = getFullContent(document.getElementById('output').textContent);
-        const blob = new Blob([fullText], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'symptom-summary.txt';
-        a.click();
-        URL.revokeObjectURL(url);
-      });
-
-    </script>
-  </body>
-</html>
+    <div class="button-group">
+      <button class="btn dark" onclick="copyToClipboard()">Copy to Clipboard</button>
+      <button class="btn dark" onclick="printOutput()">Print This</button>
+      <button class="btn dark" onclick="downloadTxt()">Download as .txt</button>
+    </div>
+  </div>
+    <div style="margin-top: 3rem;">
+    <a href="/tools">← Back to all tools</a>
+    </div>
+  <script src="/js/symptom-summary.js" defer></script>
+</BaseLayout>

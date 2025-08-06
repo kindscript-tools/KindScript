@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const { pathname } = Astro.url;
+---
+
+<BaseLayout 
+  title="Insurance Appeal Letter Generator" 
+  description="Gently draft an appeal letter after an insurance denial, even if you're not sure what to say." 
+  currentPath={pathname}
+>
+  <div class="tool-page">
+    <h1>📄 Insurance Appeal Letter Generator</h1>
+
+    <p>This tool helps you write a letter to appeal an insurance denial — even if you’re overwhelmed or unsure what to say.</p>
+
+    <ul>
+      <li>🔒 <strong>Private by design</strong><br />Everything stays in your browser. Nothing is saved or sent anywhere.</li>
+      <li>📣 <strong>A supportive writing tool</strong><br />This isn't legal advice — just a way to help you advocate for yourself.</li>
+    </ul>
+
+    <p>🛠️ Ready to write your appeal? <a href="#appeal-form">Jump to the form</a></p>
+
+    <hr class="tool-divider">
+
+    <h3>📝 Example output</h3>
+
+    <p><strong>Professional tone:</strong></p>
+    <pre class="output-box">
+August 5, 2025
+
+BlueCross BlueShield
+Appeals Department
+
+Re: Appeal for Denial of Coverage – MRI of my lower spine
+
+To Whom It May Concern,
+
+I am writing to formally appeal the denial of coverage for MRI of my lower spine, which was denied on August 1, 2025. This request has been recommended as medically necessary for my treatment by my healthcare provider, Dr. Alex Nguyen.
+
+The stated reason for denial was: "Not medically necessary." I have tried other treatments that did not help. This MRI is the next step recommended by my doctor to determine the cause of ongoing pain and guide appropriate treatment.
+
+I respectfully request a full review of this decision, considering the medical necessity and the supporting documentation provided by my healthcare provider.
+
+Thank you for your time and for reviewing this appeal.
+
+Sincerely,
+Jordan Reyes
+</pre>
+
+<p><strong>Gentle tone:</strong></p>
+<pre class="output-box">
+Hi BlueCross BlueShield,
+
+I'm reaching out because my recent request for coverage of an MRI of my lower spine was denied on August 1, 2025. I understand this might be a routine policy, but I wanted to share why this is important for my health.
+
+I've been experiencing ongoing pain, and my doctor, Dr. Alex Nguyen, has recommended this MRI as the next step. I've tried other treatments, but they haven't helped. This MRI could help identify what's going on and guide the right treatment plan.
+
+Thank you for taking the time to reconsider this request.
+
+Sincerely,
+Jordan Reyes
+</pre>
+
+    <hr class="tool-divider">
+
+    <div class="section tool-form" id="appeal-form">
+      <div class="form-inner">
+        <form id="form">
+          <label>
+  Patient name:
+  <input type="text" id="patientName" placeholder="e.g. Jordan Reyes" required>
+</label>
+
+<label>
+  Insurance provider:
+  <input type="text" id="insuranceProvider" placeholder="e.g. BlueCross BlueShield" required>
+</label>
+
+<label>
+  Date of denial (optional):
+  <input type="text" id="denialDate" placeholder="e.g. August 4, 2025">
+</label>
+
+<label for="deniedItem">What was denied?</label>
+<small class="helper-text">Name the test, medication, or procedure exactly as it appears in the denial letter.</small>
+<textarea id="deniedItem" required placeholder="e.g. MRI of my lower spine"></textarea>
+
+<label>
+  Reason the insurance gave (optional):
+  <textarea id="denialReason" placeholder="e.g. Stated as 'Not medically necessary' in denial letter"></textarea>
+</label>
+
+<label for="medicalNeed">Why do you need this?</label>
+<small class="helper-text">Explain symptoms, attempts at treatment, and your doctor's recommendation.</small>
+<textarea id="medicalNeed" required placeholder="e.g. I’ve tried physical therapy and medication without improvement. My doctor believes this MRI is essential to determine the next steps."></textarea>
+
+<label>
+  Doctor’s name (optional):
+  <input type="text" id="doctorName" placeholder="e.g. Dr. Alex Nguyen">
+</label>
+
+<label>
+  Closing sentence (optional):
+  <textarea id="closingLine" placeholder="e.g. I appreciate your reconsideration and look forward to your response."></textarea>
+</label>
+
+          <div class="form-action-area">
+            <label>
+              ✍️ Tone:
+              <select id="tone-select">
+                <option value="default">Professional</option>
+                <option value="gentle">Gentler</option>
+              </select>
+            </label>
+            <button type="button" id="generate-btn" class="btn dark">✨ Generate Appeal Letter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr class="tool-divider">
+
+    <h2>📋 Generated Letter</h2>
+    <p>You can copy, print, or share this letter — whatever works best.</p>
+    <div id="appealOutput" class="output-box" contenteditable="true" role="textbox" aria-label="Generated appeal letter">
+      (Fill out the form and click Generate)
+    </div>
+
+    <div class="button-group">
+      <button id="copy-btn" class="btn dark">Copy to Clipboard</button>
+      <button id="print-btn" class="btn dark">Print This</button>
+      <button id="download-btn" class="btn dark">Download as .txt</button>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <a href="/tools">← Back to all tools</a>
+  </div>
+
+  <script src="/js/insurance-appeal.js" defer></script>
+</BaseLayout>

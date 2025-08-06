@@ -1,10 +1,10 @@
 const addButton = document.getElementById('add-medication');
 const medsContainer = document.getElementById('medications');
-const generateBtn = document.getElementById('generate-button');
+const generateBtn = document.getElementById('generate-btn');
 const outputField = document.getElementById('output');
-const copyBtn = document.getElementById('copy-button');
-const printBtn = document.getElementById('print-button');
-const downloadBtn = document.getElementById('download-button');
+const copyBtn = document.getElementById('copy-btn');
+const printBtn = document.getElementById('print-btn');
+const downloadBtn = document.getElementById('download-btn');
 
 if (!addButton || !medsContainer || !generateBtn || !outputField) {
   console.warn("Missing required form elements. Medication script not initialized.");
@@ -21,10 +21,7 @@ if (!addButton || !medsContainer || !generateBtn || !outputField) {
     medsContainer.appendChild(row);
   }
 
-  window.addEventListener('DOMContentLoaded', () => {
-    addMedicationRow();
-  });
-
+  window.addEventListener('DOMContentLoaded', addMedicationRow);
   addButton.addEventListener('click', addMedicationRow);
 
   medsContainer.addEventListener('click', (e) => {
@@ -57,17 +54,17 @@ if (!addButton || !medsContainer || !generateBtn || !outputField) {
     if (meds.length) result += `Medications: ${meds.join(', ')}\n`;
     if (supplements) result += `Supplements: ${supplements}`;
 
-    outputField.value = result.trim();
+    outputField.textContent = result.trim();
   });
 
   copyBtn?.addEventListener('click', () => {
-    navigator.clipboard.writeText(outputField.value).catch(err =>
+    navigator.clipboard.writeText(outputField.innerText).catch(err =>
       console.error('Clipboard copy failed:', err)
     );
   });
 
   printBtn?.addEventListener('click', () => {
-    const text = outputField.value.trim();
+    const text = outputField.innerText.trim();
     const printWindow = window.open('', '_blank');
     printWindow.document.write(`
       <html>
@@ -78,7 +75,10 @@ if (!addButton || !medsContainer || !generateBtn || !outputField) {
               font-family: Georgia, serif;
               font-size: 0.85rem;
               padding: 2rem;
-              white-space: pre-wrap;
+            }
+            pre {
+              white-space: pre-wrap; /* preserves formatting but wraps lines */
+              word-wrap: break-word; /* breaks long words if needed */
             }
           </style>
         </head>
@@ -93,7 +93,7 @@ if (!addButton || !medsContainer || !generateBtn || !outputField) {
   });
 
   downloadBtn?.addEventListener('click', () => {
-    const blob = new Blob([outputField.value], { type: 'text/plain' });
+    const blob = new Blob([outputField.innerText], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

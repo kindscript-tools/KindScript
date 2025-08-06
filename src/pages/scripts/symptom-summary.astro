@@ -17,19 +17,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <p>🛠️ Ready to fill it out? <a href="#symptom-form">Jump to the form</a></p>
 
+    <hr class="tool-divider">
+
     <h3>📝 Example output</h3>
-<div class="output-example-box">
-  <p><strong>Friendly style:</strong></p>
-  <pre class="output-example">
+    <p><strong>Friendly style:</strong></p>
+    <pre class="output-box">
 Over the past few weeks, I’ve had daily fatigue and headaches that are affecting my ability to focus and work. I’ve tried adjusting my sleep and reducing screen time, but it hasn’t helped. I’d like to discuss possible causes and treatment options.</pre>
 
-  <p><strong>Bullet style:</strong></p>
-  <pre class="output-example">
+    <p><strong>Bullet style:</strong></p>
+    <pre class="output-box">
 🕒 Started a few weeks ago
 🩺 Fatigue, headaches, difficulty concentrating
 🧪 Tried better sleep, less screen time
 🙋 Hoping to discuss causes + treatment options</pre>
-</div>
+
+    <hr class="tool-divider">
 
     <div class="section tool-form">
       <div class="form-inner">
@@ -54,18 +56,24 @@ Over the past few weeks, I’ve had daily fatigue and headaches that are affecti
             Is there anything else you'd like to share?
             <textarea id="extra"></textarea>
           </label>
-          <button type="submit" class="btn dark">Generate</button>
+
+          <div class="form-action-area">
+            <label for="style-select" class="output-style-label">
+              📝 Output style:
+              <select id="style-select">
+                <option value="friendly">Friendly</option>
+                <option value="bullets">Bullet List</option>
+              </select>
+            </label>
+            <button type="submit" id="generate-btn" class="btn dark">
+              ✨ Generate Summary
+            </button>
+          </div>
         </form>
       </div>
     </div>
 
-    <div class="output-style-toggle">
-      📝 Output style:
-      <select id="style-select">
-        <option value="friendly">Friendly</option>
-        <option value="bullets">Bullet List</option>
-      </select>
-    </div>
+    <hr class="tool-divider">
 
     <h2>📋 Generated Summary</h2>
     <p>You can copy, print, or hand this to your provider — whatever works best.</p>
@@ -74,13 +82,15 @@ Over the past few weeks, I’ve had daily fatigue and headaches that are affecti
     </div>
 
     <div class="button-group">
-      <button class="btn dark" onclick="copyToClipboard()">Copy to Clipboard</button>
-      <button class="btn dark" onclick="printOutput()">Print This</button>
-      <button class="btn dark" onclick="downloadTxt()">Download as .txt</button>
+      <button id="copy-btn" class="btn dark">Copy to Clipboard</button>
+      <button id="print-btn" class="btn dark">Print This</button>
+      <button id="download-btn" class="btn dark">Download as .txt</button>
     </div>
   </div>
-    <div style="margin-top: 3rem;">
+
+  <div style="margin-top: 3rem;">
     <a href="/tools">← Back to all tools</a>
-    </div>
+  </div>
+
   <script src="/js/symptom-summary.js" defer></script>
 </BaseLayout>

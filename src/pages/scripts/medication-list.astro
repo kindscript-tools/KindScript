@@ -2,7 +2,10 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Medication List Tool – KindScript" description="Prepare a clear, printable list of your current medications and supplements to bring to medical visits.">
+<BaseLayout 
+  title="Medication List Tool – KindScript" 
+  description="Prepare a clear, printable list of your current medications and supplements to bring to medical visits."
+>
   <div class="section">
     <h1>💊 Current Medications</h1>
     <p>This tool helps you prepare a medication list to bring to medical appointments. You can list prescription meds, OTC items, and supplements — and then copy, print, or download it.</p>
@@ -13,53 +16,65 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <li>🔒 <strong>Private by design</strong><br />Everything you type stays on your device and never gets sent anywhere — no servers, no databases, no tracking. Your information is processed entirely in your browser.</li>
       <li>🩺 <strong>Not medical advice</strong><br />This is a writing tool to help you advocate for yourself or a loved one. It isn’t a substitute for professional medical advice, diagnosis, or treatment.</li>
     </ul>
-<p>🛠️ Ready to fill it out? <a href="#medication-form">Jump to the form</a></p>
+
+    <p>🛠️ Ready to fill it out? <a href="#medication-form">Jump to the form</a></p>
+
+    <hr class="tool-divider">
+
     <h3>📝 Example output</h3>
-<pre class="output-box">
+    <pre class="output-box">
 Name: Jamie R.
 Date: 2025-08-01
 Medication List
 Medications: Zyrtec 10 mg (once daily)
-Supplements: Vitamin D, Magnesium
-</pre>
-  </div>
+Supplements: Vitamin D, Magnesium</pre>
 
-  <div class="section tool-form">
-    <div class="form-inner">
-      <form id="medication-form">
-        <label for="name">Name (optional)</label>
-        <input type="text" id="name" placeholder="e.g. Jamie R." />
+    <hr class="tool-divider">
 
-        <label for="date">Date</label>
-        <input type="date" id="date" />
+    <div class="section tool-form" id="medication-form">
+      <div class="form-inner">
+        <form>
+          <label for="name">Name (optional)</label>
+          <input type="text" id="name" placeholder="e.g. Jamie R." />
 
-      <div class="form-section-label">💊 Medications</div>
-      <div id="medications"></div>
-      <button type="button" id="add-medication" class="btn dark lift-up">+ Add another medication</button>
+          <label for="date">Date</label>
+          <input type="date" id="date" />
 
-      <div class="form-section-label">🌿 Supplements</div>
-      <textarea id="supplements" placeholder="e.g. Vitamin D, Magnesium"></textarea>
+          <div class="form-section-label">💊 Medications</div>
+          <div id="medications"></div>
+          <div style="margin-top: 0.25rem; margin-bottom: 0.5rem;">
+            <button type="button" id="add-medication" class="btn subtle">
+              + Add another medication
+            </button>
+          </div>
 
-        <button type="button" id="generate-button" class="btn dark">Generate</button>
-      </form>
+          <label for="supplements" class="form-section-label">🌿 Supplements</label>
+          <textarea id="supplements" placeholder="e.g. Vitamin D, Magnesium"></textarea>
+
+          <div style="text-align: center; margin-top: 1rem;">
+            <button type="button" id="generate-btn" class="btn dark">✨ Generate Medication List</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <div class="section">
+    <hr class="tool-divider">
+
     <h2>📋 Generated Medication List</h2>
     <p>You can copy, print, or hand this to your provider — whatever works best.</p>
-    <div class="output-box">
-      <textarea id="output" rows="7" placeholder="(Fill out the form and click Generate)"></textarea>
+    <div id="output" class="output-box" contenteditable="true" role="textbox" aria-label="Generated medication list">
+      (Fill out the form and click Generate)
     </div>
     <div class="button-group">
-      <button type="button" id="copy-button" class="btn dark">Copy to Clipboard</button>
-      <button type="button" id="print-button" class="btn dark">Print This</button>
-      <button type="button" id="download-button" class="btn dark">Download as .txt</button>
+      <button type="button" id="copy-btn" class="btn dark">Copy to Clipboard</button>
+      <button type="button" id="print-btn" class="btn dark">Print This</button>
+      <button type="button" id="download-btn" class="btn dark">Download as .txt</button>
     </div>
   </div>
 
   <div style="margin-top: 3rem;">
     <a href="/tools">← Back to all tools</a>
   </div>
+
   <script src="/js/medication-list.js" defer></script>
 </BaseLayout>

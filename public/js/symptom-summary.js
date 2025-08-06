@@ -1,10 +1,12 @@
 console.log('✅ symptom-summary.js loaded');
+
 const form = document.getElementById('symptom-form');
 const outputBox = document.getElementById('output');
-const copyBtn = document.querySelector('[onclick="copyToClipboard()"]');
-const printBtn = document.querySelector('[onclick="printOutput()"]');
-const downloadBtn = document.querySelector('[onclick="downloadTxt()"]');
+const copyBtn = document.getElementById('copy-btn');
+const printBtn = document.getElementById('print-btn');
+const downloadBtn = document.getElementById('download-btn');
 const styleSelect = document.getElementById('style-select');
+const generateBtn = document.getElementById('generate-btn');
 
 function generateFriendly({ start, symptoms, tried, support, extra }) {
   let text = `To whom it may concern,\n\n`;
@@ -56,14 +58,13 @@ function updateOutput() {
   outputBox.innerText = summary || '(Fill out the form and click Generate)';
 }
 
-if (form && outputBox) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    updateOutput();
-  });
+// Event listeners
+generateBtn?.addEventListener('click', (e) => {
+  e.preventDefault();
+  updateOutput();
+});
 
-  styleSelect?.addEventListener('change', updateOutput);
-}
+styleSelect?.addEventListener('change', updateOutput);
 
 copyBtn?.addEventListener('click', () => {
   navigator.clipboard.writeText(outputBox.innerText).catch(err =>
@@ -83,7 +84,11 @@ printBtn?.addEventListener('click', () => {
             font-family: Georgia, serif;
             font-size: 0.85rem;
             padding: 2rem;
+          }
+          pre {
             white-space: pre-wrap;
+            word-wrap: break-word;
+            max-width: 100%;
           }
         </style>
       </head>

@@ -1,5 +1,11 @@
 # 🧾 KindScript – Tools for When the System Gets in the Way of the Care You Deserve
 
+![Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro&logoColor=white)
+![JavaScript](https://img.shields.io/badge/Language-JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![License](https://img.shields.io/badge/License-MIT-blue)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+
 **KindScript** is a set of simple, human‑centered tools for creating clear, low‑stress letters or summaries — especially when you're overwhelmed, anxious, or navigating complex health situations.
 
 You fill in a few prompts, and the tool gives you a ready‑to‑share output that you can copy, print, or download — so you can focus on care, not paperwork.
@@ -11,11 +17,11 @@ You fill in a few prompts, and the tool gives you a ready‑to‑share output th
 ### 📝 Symptom Summary Generator
 Helps you prepare for a medical appointment by summarizing your symptoms, concerns, and goals — so you don’t have to explain everything out loud or on the spot.
 
-### 📄 Insurance Appeal Letter Generator
-Gently drafts a letter to appeal an insurance denial. Includes both a **professional** and a **gentler** tone option, so you can match the style to your needs.
-
 ### 💊 Medication List Tool
 Prepares a clear, printable list of your current medications and supplements — useful for appointments, hospital stays, or when someone else needs to know what you’re taking.
+
+### 📄 Insurance Appeal Letter Generator
+Gently drafts a letter to appeal an insurance denial. Includes both a **professional** and a **gentler** tone option, so you can match the style to your needs.
 
 ---
 

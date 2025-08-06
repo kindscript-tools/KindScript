@@ -1,13 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const { pathname } = Astro.url;
+
+const title = "Insurance Appeal Letter Generator – KindScript";
+const description = "Create a clear, respectful insurance appeal letter to advocate for the treatment, test, or medication you need.";
+const keywords = "insurance appeal, denial letter, healthcare scripts, medical insurance, claim support";
+const author = "KindScript";
+const date = "2025-08-06";
+const lastUpdated = "2025-08-06";
 ---
 
-<BaseLayout 
-  title="Insurance Appeal Letter Generator" 
-  description="Gently draft an appeal letter after an insurance denial, even if you're not sure what to say." 
-  currentPath={pathname}
->
+<BaseLayout title={title} description={description}>
   <div class="tool-page">
     <h1>📄 Insurance Appeal Letter Generator</h1>
 

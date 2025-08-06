@@ -1,11 +1,15 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Medication List Organizer – KindScript";
+const description = "Build a clear, printable list of your current medications to bring to appointments or share with your care team.";
+const keywords = "medication list, prescription tracking, healthcare organization, medical records";
+const author = "KindScript";
+const date = "2025-08-06";
+const lastUpdated = "2025-08-06";
 ---
 
-<BaseLayout 
-  title="Medication List Tool – KindScript" 
-  description="Prepare a clear, printable list of your current medications and supplements to bring to medical visits."
->
+<BaseLayout title={title} description={description}>
   <div class="section">
     <h1>💊 Current Medications</h1>
     <p>This tool helps you prepare a medication list to bring to medical appointments. You can list prescription meds, OTC items, and supplements — and then copy, print, or download it.</p>

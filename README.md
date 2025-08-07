@@ -1,6 +1,6 @@
 # 🧾 KindScript – Tools for When the System Gets in the Way of the Care You Deserve
 
-![Stars](https://img.shields.io/github/stars/kindscript-tools/kindscript?style=plastic)
+![Stars](https://img.shields.io/github/stars/kindscript-tools/kindscript?style=flat)
 ![Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/Language-JavaScript-F7DF1E?logo=javascript&logoColor=black)
 ![Status](https://img.shields.io/badge/Status-Active-success)

@@ -21,11 +21,11 @@ Helps you prepare for a medical appointment by summarizing your symptoms, concer
 ### 💊 Medication List Tool
 Prepares a clear, printable list of your current medications and supplements — useful for appointments, hospital stays, or when someone else needs to know what you’re taking.
 
-### 📄 Insurance Appeal Letter Generator
-Gently drafts a letter to appeal an insurance denial. Includes both a **professional** and a **gentler** tone option, so you can match the style to your needs.
-
 ### ✉️ Refill Request Generator
 Creates a clear, polite message requesting a medication refill — for yourself or someone else. Choose between a **friendly note** or a **bullet-style entry**, and include any helpful context.
+
+### 📄 Insurance Appeal Letter Generator
+Gently drafts a letter to appeal an insurance denial. Includes both a **professional** and a **gentler** tone option, so you can match the style to your needs.
 
 ---
 

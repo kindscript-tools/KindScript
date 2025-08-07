@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Pain & Fatigue Journal Tool – KindScript";
+const description = "Track daily symptoms, triggers, and impact with this private, printable pain and fatigue journal.";
+const keywords = "pain journal, fatigue tracking, health journal, symptom tracker, patient tool";
+const author = "KindScript";
+const date = "2025-08-06";
+const lastUpdated = "2025-08-06";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="tool-page">
+    <h1>📓 Pain & Fatigue Journal</h1>
+    <p>A simple tool to help you log your symptoms day to day — especially if they’re hard to describe or seem to come and go.</p>
+
+    <h2>🔍 What this tool is</h2>
+    <p>
+      This journal helps you keep track of pain, fatigue, and related symptoms — including what might have triggered them and how they’re affecting your daily life. It’s especially useful when symptoms fluctuate, overlap, or are hard to explain in a short appointment.
+    </p>
+    <p>
+      You can use it for yourself or to help someone else. We’ll guide you through the basics — no medical lingo needed.
+    </p>
+    <ul>
+      <li>🔒 <strong>Private by design</strong><br />Nothing is stored, sent, or saved — everything stays on your device.</li>
+      <li>🩺 <strong>Not medical advice</strong><br />This is a journaling tool — not a diagnostic tool or substitute for professional care.</li>
+    </ul>
+
+    <p>🛠️ Ready to begin? <a href="#journal-form">Jump to the form</a></p>
+
+    <hr class="tool-divider">
+
+<h3>📝 Example output</h3>
+<p><strong>Detailed format:</strong></p>
+<pre class="output-box">
+Date: 2025-08-06
+Location: lower back
+Description: dull ache and stiffness, worse in the morning
+Severity: 6/10
+Trigger: sleeping in awkward position
+Relief: heating pad and gentle stretching
+Impact: difficult to sit for long periods; avoided errands
+Notes: similar to last week’s episode</pre>
+
+<p><strong>Bullet format:</strong></p>
+<pre class="output-box">
+🗓️ 2025-08-06
+📍 lower back
+📝 dull ache and stiffness, worse in the morning
+🔢 Severity: 6/10
+⚠️ Trigger: sleeping in awkward position
+✅ Relief: heating pad and stretching
+📉 Impact: avoided errands
+🧠 Notes: similar to last week’s episode</pre>
+
+    <hr class="tool-divider" />
+
+    <div class="section tool-form" id="journal-form">
+      <div class="form-inner">
+        <form id="form">
+          <label>
+  Date:
+  <input type="text" id="date" placeholder="e.g. August 6, 2025" required>
+</label>
+
+<label>
+  Location of pain/fatigue:
+  <input type="text" id="location" placeholder="e.g. lower back, neck, legs" required>
+</label>
+
+<label>
+  Description of symptoms:
+  <textarea id="description" placeholder="e.g. dull ache and stiffness, worse in the morning" required></textarea>
+</label>
+
+<label>
+  Severity (optional):
+  <input type="text" id="severity" placeholder="e.g. 6/10, moderate, severe">
+</label>
+
+<label>
+  Trigger or cause (optional):
+  <input type="text" id="trigger" placeholder="e.g. lack of sleep, overexertion">
+</label>
+
+<label>
+  What helped or made it worse (optional):
+  <input type="text" id="relief" placeholder="e.g. heating pad, stretching, rest">
+</label>
+
+<label>
+  How it affected your day:
+  <textarea id="impact" placeholder="e.g. had to cancel plans, missed work, stayed in bed"></textarea>
+</label>
+
+<label>
+  Notes or patterns you’ve noticed (optional):
+  <textarea id="notes" placeholder="e.g. similar to last week, worse after walking too much"></textarea>
+</label>
+
+    <div class="form-action-area">
+      <label for="output-style" class="output-style-label">
+        📝 Output style:
+        <select id="output-style">
+          <option value="friendly">Friendly</option>
+          <option value="bullets">Bullet List</option>
+        </select>
+      </label>
+      <button type="button" id="generate-btn" class="btn dark">✨ Generate Journal Entry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr class="tool-divider">
+
+    <h2>📋 Generated Entry</h2>
+    <p>You can copy, print, or download this entry — whatever helps you most.</p>
+    <div id="journalOutput" class="output-box" contenteditable="true" role="textbox" aria-label="Generated pain journal entry">
+      (Fill out the form and click Generate)
+    </div>
+
+    <div class="button-group">
+      <button id="copy-btn" class="btn dark">Copy to Clipboard</button>
+      <button id="print-btn" class="btn dark">Print This</button>
+      <button id="download-btn" class="btn dark">Download as .txt</button>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <a href="/tools">← Back to all tools</a>
+  </div>
+
+  <script src="/js/pain-journal.js" defer></script>
+</BaseLayout>

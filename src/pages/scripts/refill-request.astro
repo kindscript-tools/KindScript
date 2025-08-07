@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Prescription Refill Request Tool – KindScript";
+const description = "Create a clear, polite message to request a medication refill — for yourself or someone you’re supporting.";
+const keywords = "prescription refill, refill request, medication letter, patient tool";
+const author = "KindScript";
+const date = "2025-08-06";
+const lastUpdated = "2025-08-06";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="tool-page">
+    <h1>💊 Prescription Refill Request Generator</h1>
+    <p>A template to help you ask for a medication refill — clearly and respectfully — when you’re running low or need to explain why it’s important.</p>
+
+    <h2>🔍 What this tool is</h2>
+    <p>
+      This tool helps you write a refill request you can send to your doctor, clinic, or care team. It’s helpful when you’re low on medication, switching providers, or facing an insurance delay.
+    </p>
+    <p>
+      You can use it for yourself or to help a loved one. We’ll guide you through what to include — you don’t need perfect wording or medical terms.
+    </p>
+    <ul>
+      <li>🔒 <strong>Private by design</strong><br />Everything you write stays on your device. It’s never saved, sent, or tracked.</li>
+      <li>🩺 <strong>Not medical advice</strong><br />This is a writing tool — not a prescription service or substitute for professional care.</li>
+    </ul>
+
+    <p>🛠️ Ready to begin? <a href="#refill-form">Jump to the form</a></p>
+
+    <hr class="tool-divider">
+
+    <h3>📝 Example output</h3>
+    <pre class="output-box">Hi,
+
+I'm writing to request a refill for Sertraline 50mg, which I’ve been taking for about 8 months. It’s been helpful in managing my anxiety symptoms, and I’m running low.
+
+I have a follow-up appointment in two weeks but may run out before then.
+
+Thanks so much,  
+Jordan Reyes</pre>
+
+<hr class="tool-divider">
+
+    <div class="section tool-form" id="refill-form">
+      <div class="form-inner">
+        <form id="form">
+          <label>
+  Patient name:
+  <input type="text" id="patientName" placeholder="e.g. Jordan Reyes" required>
+</label>
+
+<label>
+  Medication name + dose:
+  <input type="text" id="medication" placeholder="e.g. Sertraline 50mg" required>
+</label>
+
+<label>
+  How long you’ve been taking it (optional):
+  <input type="text" id="duration" placeholder="e.g. 8 months">
+</label>
+
+<label>
+  Why you’re requesting a refill:
+  <textarea id="reason" placeholder="e.g. I’m running low and this medication has helped manage my depression." required></textarea>
+</label>
+
+<label>
+  Who the medication is for:
+  <input type="text" id="forWhom" placeholder="e.g. Myself, My mother (Lisa), My child (Max)">
+</label>
+
+<label>
+  Anything else they should know (optional):
+  <textarea id="extraInfo" placeholder="e.g. I have an appointment in 2 weeks but may run out before then."></textarea>
+</label>
+
+          <div class="form-action-area">
+            <button type="button" id="generate-btn" class="btn dark">✨ Generate Refill Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr class="tool-divider">
+
+    <h2>📋 Generated Request</h2>
+    <p>You can copy, print, or share this message — whatever works best.</p>
+    <div id="refillOutput" class="output-box" contenteditable="true" role="textbox" aria-label="Generated refill request">
+      (Fill out the form and click Generate)
+    </div>
+
+    <div class="button-group">
+      <button id="copy-btn" class="btn dark">Copy to Clipboard</button>
+      <button id="print-btn" class="btn dark">Print This</button>
+      <button id="download-btn" class="btn dark">Download as .txt</button>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <a href="/tools">← Back to all tools</a>
+  </div>
+
+  <script src="/js/refill-request.js" defer></script>
+</BaseLayout>

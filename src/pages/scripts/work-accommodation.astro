@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Medical Leave & Work Accommodation Request Tool – KindScript";
+const description = "Generate a clear, professional message to request medical leave, flexible work arrangements, or accommodations — for yourself or someone you're supporting.";
+const keywords = "medical leave, work accommodation, HR letter, job support, workplace flexibility";
+const author = "KindScript";
+const date = "2025-08-06";
+const lastUpdated = "2025-08-06";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="tool-page">
+    <h1>🏥 Medical Leave & Work Accommodation Request</h1>
+    <p>A template to help you ask for time off, remote work, flexible hours, or other support from your employer — clearly, respectfully, and without having to find all the right words yourself.</p>
+
+    <h2>🔍 What this tool is</h2>
+    <p>
+      This tool helps you write a message to your employer or HR department when you need time off, medical leave, schedule changes, or workplace accommodations — either for yourself or to support a loved one.
+    </p>
+    <p>
+      Whether you’re recovering from something, managing a chronic condition, preparing for a medical procedure, or supporting someone else, this tool gives you a calm place to begin.
+    </p>
+    <ul>
+      <li>🔒 <strong>Private by design</strong><br />Everything you type stays on your device. We don’t collect or store anything.</li>
+      <li>📎 <strong>Not legal advice</strong><br />This is a writing tool — not a substitute for legal, medical, or HR counsel.</li>
+    </ul>
+
+    <p>🛠️ Ready to start? <a href="#work-form">Jump to the form</a></p>
+
+    <hr class="tool-divider">
+
+    <h3>📝 Example output</h3>
+    <pre class="output-box">Hi HR Team,
+
+I’m writing to request medical leave and a temporary workplace accommodation.
+
+I’m recovering from surgery and will need two weeks off, followed by a transition period where I work from home.
+
+The requested timeframe is August 12–26.
+
+Requested support: Two weeks of leave, followed by remote work for 1–2 additional weeks if possible.
+
+Thank you for your time and understanding.
+
+Jordan Reyes</pre>
+
+<hr class="tool-divider">
+
+    <div class="section tool-form" id="work-form">
+      <div class="form-inner">
+        <form id="form">
+          <label>
+  Your name:
+  <input type="text" id="userName" placeholder="e.g. Jordan Reyes" required>
+</label>
+
+<label>
+  Employer or HR contact (optional):
+  <input type="text" id="employerName" placeholder="e.g. HR Team, Acme Inc.">
+</label>
+
+<label>
+  Who is the request for?
+  <input type="text" id="forWhom" placeholder="e.g. Myself, My partner (Sam), My child (Ella)" required>
+</label>
+
+<label>
+  Type of request:
+  <select id="requestType">
+    <option value="leave">Medical leave</option>
+    <option value="accommodation">Work accommodation</option>
+    <option value="both">Both leave and accommodation</option>
+  </select>
+</label>
+
+<label>
+  Reason for the request (brief, no details needed):
+  <textarea id="reason" placeholder="e.g. I’m recovering from surgery and need to request time off."></textarea>
+</label>
+
+<label>
+  Dates or time frame (optional):
+  <input type="text" id="timeframe" placeholder="e.g. August 10–24, or starting next Monday">
+</label>
+
+<label>
+  What kind of support is needed?
+  <textarea id="supportType" placeholder="e.g. Two weeks of leave, followed by temporary remote work if possible."></textarea>
+</label>
+
+<label>
+  Closing message (optional):
+  <textarea id="closingLine" placeholder="e.g. Thank you for your understanding and support."></textarea>
+</label>
+
+          <div class="form-action-area">
+            <button type="button" id="generate-btn" class="btn dark">✨ Generate Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr class="tool-divider">
+
+    <h2>📋 Generated Request</h2>
+    <p>You can copy, print, or share this message — whatever works best.</p>
+    <div id="workOutput" class="output-box" contenteditable="true" role="textbox" aria-label="Generated workplace support request">
+      (Fill out the form and click Generate)
+    </div>
+
+    <div class="button-group">
+      <button id="copy-btn" class="btn dark">Copy to Clipboard</button>
+      <button id="print-btn" class="btn dark">Print This</button>
+      <button id="download-btn" class="btn dark">Download as .txt</button>
+    </div>
+
+    <div style="margin-top: 3rem;">
+      <a href="/tools">← Back to all tools</a>
+    </div>
+
+    <script src="/js/work-accommodation.js" defer></script>
+  </div>
+</BaseLayout>

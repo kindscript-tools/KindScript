@@ -24,8 +24,17 @@ Prepares a clear, printable list of your current medications and supplements —
 ### ✉️ Refill Request Generator
 Creates a clear, polite message requesting a medication refill — for yourself or someone else. Choose between a **friendly note** or a **bullet-style entry**, and include any helpful context.
 
+### 💬 Quick Messages for Your Provider 🆕
+Offers a collection of ready-to-use messages for common situations — like checking on test results, updating symptoms, or asking about referrals. Copy, customize, and send when you’re too overwhelmed to find the words.
+
 ### 📄 Insurance Appeal Letter Generator
 Gently drafts a letter to appeal an insurance denial. Includes both a **professional** and a **gentler** tone option, so you can match the style to your needs.
+
+### 📓 Pain & Fatigue Journal 🆕
+Lets you log symptoms, triggers, severity, and impact on daily life. Use it to spot patterns over time or share details with your care team. Available as a Notion template, or .csv file.
+
+### 🏥 Work Accommodation Request Tool 🆕
+Helps you request time off, reduced hours, or temporary support from your workplace, school, or program — with language that’s clear, respectful, and easy to customize.
 
 ---
 

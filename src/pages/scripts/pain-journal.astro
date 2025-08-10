@@ -3,10 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = "Pain & Fatigue Journal Tool – KindScript";
 const description = "Track daily symptoms, triggers, and impact with this private, printable pain and fatigue journal.";
-const keywords = "pain journal, fatigue tracking, health journal, symptom tracker, patient tool";
+const keywords = "pain journal, fatigue tracking, health journal, Notion template, symptom tracker, patient tool";
 const author = "KindScript";
 const date = "2025-08-06";
-const lastUpdated = "2025-08-06";
+const lastUpdated = "2025-08-10";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -57,10 +57,10 @@ Notes: similar to last week’s episode</pre>
 
     <div class="section tool-form" id="journal-form">
       <div class="form-inner">
-        <form id="form">
+        <form id="journal-form">
           <label>
   Date:
-  <input type="text" id="date" placeholder="e.g. August 6, 2025" required>
+  <input type="text" id="date" placeholder="e.g. 2025-08-06" required>
 </label>
 
 <label>
@@ -102,7 +102,7 @@ Notes: similar to last week’s episode</pre>
       <label for="output-style" class="output-style-label">
         📝 Output style:
         <select id="output-style">
-          <option value="friendly">Friendly</option>
+          <option value="detailed">Detailed</option>
           <option value="bullets">Bullet List</option>
         </select>
       </label>
@@ -125,7 +125,46 @@ Notes: similar to last week’s episode</pre>
       <button id="print-btn" class="btn dark">Print This</button>
       <button id="download-btn" class="btn dark">Download as .txt</button>
     </div>
-  </div>
+        <hr class="tool-divider">
+    <div class="download-section" style="margin-top: 1rem;">
+      <a
+        href="/downloads/Medication-List.pdf"
+        class="btn"
+        download
+        style="background: #eee; color: #111; border: 1px solid #ccc; display: inline-block; margin-bottom: 0.5rem;"
+      >
+        📄 Download the Printable Version (PDF)
+      </a>
+      <p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0;">
+        📱 Already printed it? Scan the QR code at the bottom of the page anytime to grab a fresh copy or use the digital version.<br />
+        <em>(v1.0 – Aug 2025)</em>
+      </p>
+    </div>
+
+    <hr class="tool-divider">
+      <a
+  href="/downloads/pain_fatigue_journal_template.csv"
+  class="btn"
+  download
+  style="background: #eee; color: #111; border: 1px solid #ccc; display: inline-block; margin-bottom: 0.5rem;"
+>
+  📊 Download the Spreadsheet Version (CSV)
+</a>
+<p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0;">
+  Can be opened with Google Sheets, Excel, or any spreadsheet program.
+</p>
+    <hr class="tool-divider">
+<p style="margin-top: 0;">
+        Prefer a digital version? Use our
+        <a href="https://honorable-mimosa-4f3.notion.site/Pain-Fatigue-Journal-2493e9ff50d880eba81fd672bab8fb66?source=copy_link" target="_blank" rel="noopener noreferrer">
+          Notion Pain & Fatigue Journal
+        </a> — just click <strong>“Duplicate”</strong> in the top-right to save a copy to your workspace.
+      </p>
+    </div>
+<hr class="tool-divider">
+    <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+  📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
+</p>
 
   <div style="margin-top: 3rem;">
     <a href="/tools">← Back to all tools</a>

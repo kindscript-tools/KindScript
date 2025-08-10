@@ -1,5 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "All Tools & Scripts – KindScript";
+const description = "Browse every KindScript tool: Symptom Summary, Medication List, Prescription Refill Request, Insurance Appeal, Work Accommodation, Quick Messages, and Pain & Fatigue Journal. Private, printable, and easy to use.";
+const keywords = "KindScript tools, patient tools, healthcare scripts, symptom summary, medication list, refill request, insurance appeal, work accommodation, quick messages, journal, pain journal, patient portal";
+const author = "KindScript";
+
+const date = "2025-08-01";       // first publish date of the Tools page
+const lastUpdated = "2025-08-09"; // update when you add/edit tools
 ---
 
 <BaseLayout title="KindScript Tools – Navigate care with confidence" description="Scripts and printable tools to help with doctor visits, medications, insurance appeals, and more.">
@@ -16,11 +24,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <small>Quickly create a clear, organized overview of your symptoms to share with your provider.</small>
       </li>
       <li>
+        <a href="/scripts/messages">💬 <strong>Quick Messages for Your Provider</strong></a>
+        <span class="new-tag">NEW</span><br />
+        <small>Pre-written, editable messages for labs, medications, appointments, billing, and more — ready to send via portal or email.</small>
+      </li>
+      <li>
         <a href="/scripts/medication-list">💊 <strong>Medication List Tool</strong></a><br />
         <small>Make a printable, up-to-date list of your prescriptions, over-the-counter meds, and supplements.</small>
       </li>
       <li>
-        <a href="/scripts/refill-request">📝 <strong>Prescription Refill Request Tool</strong></a><br />  
+        <a href="/scripts/refill-request">📝 <strong>Prescription Refill Request Tool</strong></a>
+        <span class="new-tag">NEW</span><br />  
         <small>Write a clear, respectful message to your provider when you need a medication refill — for yourself or someone you support.</small>
       </li>
     </ul>
@@ -40,7 +54,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <h2>🧳 Work & Leave Support</h2>
     <ul>
       <li>
-        <a href="/scripts/work-accommodation">🏥 Medical Leave & Work Accommodation Request</a><br />
+        <a href="/scripts/work-accommodation">🏥 Medical Leave & Work Accommodation Request</a>
+        <span class="new-tag">NEW</span><br />
         <small>Request time off or workplace support for a medical condition — for yourself or someone you’re helping.</small>
       </li>
     </ul>
@@ -50,7 +65,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <h2>🧠 Daily Management</h2>
     <ul>
       <li>
-        <span style="opacity: 0.5;">📓 Pain & Fatigue Journal (coming soon)</span><br />
+        <a href="/scripts/pain-journal">📓 Pain & Fatigue Journal</a></span>
+        <span class="new-tag">NEW</span><br />
         <small>Track daily patterns in symptoms and energy to share with your healthcare team.</small>
       </li>
     </ul>
@@ -65,6 +81,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </li>
     </ul>
   </div>
+
+  <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+  📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
+</p>
 
   <div class="section" style="border-bottom: none; margin-bottom: 0;">
     <a href="/">← Back to the KindScript homepage</a>

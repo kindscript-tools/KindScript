@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Quick Messages – KindScript";
+const description = "Swipe‑file style messages for common healthcare asks: labs/tests, meds, symptoms, treatment, insurance, and work/leave.";
+const keywords = "quick messages, healthcare templates, portal message, lab results, medication question, treatment options, insurance note, FMLA, accommodation";
+const author = "KindScript";
+const date = "2025-08-06";
+const lastUpdated = "2025-08-09";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="tool-page">
+    <h1>⚡ Quick Messages</h1>
+    <p>Pick a category, choose a message, add a detail or two, and copy a ready‑to‑send note for your clinic, portal, or insurer.</p>
+<p class="related-inline">
+  Need something more detailed?<br>
+  <a href="/scripts/symptom-summary">Symptom Summary</a> ·
+  <a href="/scripts/refill-request">Refill Request</a> ·
+  <a href="/scripts/medication-list">Medication List</a> ·
+  <a href="/scripts/work-accommodation">Work & Leave</a> ·
+  <a href="/scripts/insurance-appeal">Insurance Appeal</a>
+</p>
+    <h2>🔍 What this tool is</h2>
+    <p>
+      Short, respectful starters for everyday tasks — checking lab results, asking about meds or side effects, clarifying treatment options, requesting documentation for insurance, or work/leave notes. No perfect wording needed; we’ll format it cleanly.
+    </p>
+    <ul>
+      <li>🔒 <strong>Private by design</strong><br />Everything happens in your browser — nothing is stored or sent.</li>
+      <li>🩺 <strong>Not medical advice</strong><br />These are writing prompts to help you communicate; they aren’t medical or legal advice.</li>
+    </ul>
+
+    <p>🛠️ Ready to begin? <a href="#qm-form">Jump to the form</a></p>
+
+    <hr class="tool-divider">
+
+    <h3>📝 Example output</h3>
+    <pre class="output-box">Hi,
+
+I’m checking in to see if the results for my blood work from Aug 5 are available yet.
+If they are, could you please share them or let me know how I can access them?
+
+Thank you,
+Jordan Reyes</pre>
+
+    <hr class="tool-divider" />
+
+    <div class="section tool-form" id="qm-form">
+      <div class="form-inner">
+        <form id="form">
+          <label>
+            Category:
+            <select id="category"></select>
+          </label>
+
+          <label>
+            Message:
+            <select id="message"></select>
+          </label>
+
+          <div id="dynamic-fields"></div>
+
+          <div class="form-action-area">
+            <label class="checkbox-row">
+              <input type="checkbox" id="include-subject" />
+              Include a Subject line (for email/portal)
+            </label>
+
+            <button type="button" id="generate-btn" class="btn dark">✨ Generate Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr class="tool-divider">
+
+    <div id="subjectWrap" style="display:none;">
+      <h2>📌 Subject</h2>
+      <div id="qmSubject" class="output-box" role="textbox" aria-label="Generated subject">
+        (Check “Include a Subject” to generate)
+      </div>
+      <div class="button-group">
+        <button id="copy-subject-btn" class="btn dark">Copy Subject</button>
+      </div>
+      <hr class="tool-divider">
+    </div>
+
+    <h2>📋 Message</h2>
+    <p>You can copy, print, or download — whatever works best.</p>
+    <div id="qmOutput" class="output-box" contenteditable="true" role="textbox" aria-label="Generated message">
+      (Choose a category and message, then click Generate)
+    </div>
+
+    <div class="button-group">
+      <button id="copy-btn" class="btn dark">Copy to Clipboard</button>
+      <button id="print-btn" class="btn dark">Print This</button>
+      <button id="download-btn" class="btn dark">Download as .txt</button>
+    </div>
+
+    <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+  📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
+</p>
+
+    <hr class="tool-divider">
+
+  <div style="margin-top: 3rem;">
+    <a href="/tools">← Back to all tools</a>
+  </div>
+
+  <script src="/js/quick-messages.js" defer></script>
+</BaseLayout>

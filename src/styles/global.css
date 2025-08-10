@@ -37,8 +37,8 @@ li {
 }
 
 .tagline {
-  margin-top: 0.25rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
   font-size: 1rem;
   font-style: italic;
   color: #444;
@@ -47,7 +47,7 @@ li {
 
 .header {
   background-color: #fdf8f3;
-  padding: 1.5rem 1rem 1rem;
+  padding: 0.5rem 1rem 0.5rem;
   border-bottom: 1px solid #ddd;
 }
 
@@ -594,4 +594,248 @@ select:focus {
   display: inline-block !important;
   width: auto !important;
   min-width: 6rem !important;
+}
+
+.note-box {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-left: 4px solid #aaa;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* === Nav Dropdowns (Tools / Downloads / Resources) === */
+
+/* Keep each top-level item on one line */
+.nav-links a,
+.dropbtn {
+  white-space: nowrap;
+}
+
+/* Dropdown wrapper sits inline with the regular links */
+.nav-links > .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Make dropdown buttons look like your links */
+.dropbtn {
+  margin: 0 0.75rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  color: #005f73;            /* deep teal */
+  font-weight: 700;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;              /* space between emoji + label */
+}
+
+.dropbtn:hover {
+  background-color: #f0dcd2;
+  color: #0a9396;
+}
+
+.dropbtn.active {
+  background-color: #f6e9e2;
+  color: #005f73;
+}
+
+/* Dropdown panel */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;                 /* directly under the button */
+  left: 0;
+  min-width: 200px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 0.35rem 0;
+  z-index: 1000;
+}
+
+/* Links inside dropdown */
+.dropdown-content a {
+  display: flex;             /* aligns emoji + label */
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.85rem;
+  margin: 0;
+  border-radius: 0;          /* flat items inside menu */
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #f4f4f4;
+  text-decoration: none;
+}
+
+/* Show dropdown on hover or keyboard focus */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+/* Keep the dropdown from clipping behind header borders */
+.navbar {
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive: stack nav on small screens */
+@media (max-width: 720px) {
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .dropdown {
+    width: auto;
+  }
+  .dropdown-content {
+    left: 0;
+    right: auto;
+    min-width: 180px;
+  }
+}
+
+/* Group banner, tagline, and nav visually */
+.header {
+  background-color: #fdf8f3;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 0; /* top spacing for banner/tagline */
+}
+
+.navbar {
+  margin-top: 1rem; /* space between tagline and nav */
+  background: transparent;
+  border-bottom: none;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Active tab styling */
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  background-color: #f6e9e2;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+}
+
+/* Group banner + nav */
+.header { background-color:#fdf8f3; border-bottom:1px solid #ddd; }
+.header-inner { max-width:700px; margin:0 auto; padding:1.5rem 1rem 0; }
+.navbar { margin-top:1rem; background:transparent; border-bottom:none; }
+.nav-links { display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; }
+
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  background-color:#f6e9e2; border-radius:999px; padding:0.4rem 0.75rem;
+}
+
+/* Dropdowns */
+.nav-links a, .dropbtn { white-space:nowrap; }
+.nav-links > .dropdown { position:relative; display:inline-block; }
+
+.dropbtn {
+  margin:0 0.75rem; padding:0.4rem 0.75rem; border-radius:999px;
+  color:#005f73; font-weight:700; background:none; border:none; cursor:pointer;
+  transition:background-color .2s ease,color .2s ease;
+  display:inline-flex; align-items:center; gap:.35rem;
+}
+.dropbtn:hover { background:#f0dcd2; color:#0a9396; }
+.dropbtn.active { background:#f6e9e2; color:#005f73; }
+
+.dropdown-content {
+  display:none; position:absolute; top:100%; left:0; min-width:200px;
+  background:#fff; box-shadow:0 8px 16px rgba(0,0,0,.15);
+  border-radius:8px; padding:.35rem 0; z-index:1000;
+}
+.dropdown-content a {
+  display:flex; align-items:center; gap:.4rem;
+  padding:.55rem .85rem; margin:0; border-radius:0;
+}
+.dropdown-content a:hover { background:#f4f4f4; text-decoration:none; }
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content { display:block; }
+
+/* Keep header layer above page content */
+.navbar { position:relative; z-index:10; }
+
+/* Responsive */
+@media (max-width:720px){
+  .nav-links { flex-wrap:wrap; gap:.5rem; }
+  .dropdown-content { min-width:180px; }
+}
+
+.related-inline {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+.related-inline a {
+  font-weight: 600;
+}
+
+.new-tag {
+  background: #ff4081; /* or a softer pink from your palette */
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  margin-left: 0.3em;
+  vertical-align: middle;
+}
+
+.crosslink {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 1.5rem;
+  color: var(--text-muted);
+}
+.crosslink a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+.crosslink a:hover {
+  text-decoration: none;
+}
+
+/* === Nav: alignment + row spacing (single source of truth) === */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem; /* row gap, column gap */
+}
+
+/* === Compact dropdown menu === */
+.dropdown-content a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;              /* space between emoji + text */
+  padding: 0.35rem 0.75rem;  /* reduce vertical padding */
+  line-height: 1.2;          /* tighter line height */
+  font-size: 0.95rem;        /* slightly smaller text */
+  white-space: nowrap;
+}
+
+.dropdown-content {
+  padding: 0.25rem 0;        /* less space inside menu container */
 }

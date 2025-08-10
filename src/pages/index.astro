@@ -1,5 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "KindScript";
+const description = "Scripts, resources, trackers, quick messages, and support for doctor visits, insurance, meds, and more.";
+const keywords = "insurance denied, what to do, advocacy, healthcare help, patient tools, overwhelmed, caregiving support, healthcare scripts, symptom summary, insurance appeal, medication refill, pain journal, fatigue journal, printables, quick messages, patient advocacy, KindScript";
+const author = "KindScript";
+const date = "2025-08-01";
+const lastUpdated = "2025-08-10";
 ---
 
 <BaseLayout 
@@ -12,19 +19,25 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <li>🧭 <a href="/what-to-do">Not sure where to begin? Start here.</a></li>
       <li>🩺 <a href="/scripts/symptom-summary">Symptom Summary Generator</a></li>
       <li>💊 <a href="/scripts/medication-list">Medication List</a></li>
-      <li>📝 <a href="/scripts/refill-request">Prescription Refill Request</a></li>
+      <li>📝 <a href="/scripts/refill-request">Prescription Refill Request</a>
+      <span class="new-tag">NEW</span><br /></li>
+      <li>💬 <a href="/scripts/messages">Quick Messages for Your Provider</a>
+      <span class="new-tag">NEW</span><br /></li>
       <li>📄 <a href="/scripts/insurance-appeal">Insurance Appeal</a></li>
-      <li>🏥 <a href="/scripts/work-accommodation">Medical Leave & Work Accommodation Request</a></li>
+      <li>🏥 <a href="/scripts/work-accommodation">Medical Leave & Work Accommodation Request</a>
+      <span class="new-tag">NEW</span><br /></li>
+      <li>📙 <a href="/scripts/pain-journal">Pain & Fatigue Journal</a>
+      <span class="new-tag">NEW</span><br /></li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>🧭 Coming Soon</h2>
+    <h2>🌱 What's Next</h2>
     <ul>
-      <li>💊 Medication + refill request scripts</li>
-      <li>📞 Insurance denial appeals + coverage questions</li>
-      <li>📅 Specialist referral + follow-up messages</li>
-      <li>📋 Printable prep for work leave requests, medical letters, and more</li>
+      <li>📞 Insurance coverage questions</li>
+      <li>📰 KindScript Blog (updates, tips, stories)</li>
+      <li>📚 Curated external resources & guides</li>
+      <li>🗂 Printable templates, checklists, and PDFs for care planning</li>
     </ul>
   </div>
 
@@ -46,6 +59,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <li>📝 <a href="/suggest">Submit your idea via form</a></li>
     </ul>
   </div>
+
+  <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+  📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
+</p>
 
   <div class="section center">
     <p>

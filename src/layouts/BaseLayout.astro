@@ -2,7 +2,7 @@
 const {
   title = "KindScript",
   description = "Scripts, resources, and support for doctor visits, insurance, meds, and more.",
-  keywords = "healthcare scripts, symptom summary, insurance appeal, medication refill, patient advocacy, KindScript",
+  keywords = "healthcare scripts, advocacy, caregiver support, symptom summary, insurance appeal, medication refill, pain journal, fatigue journal, printables, quick messages, patient advocacy, KindScript",
   author = "KindScript",
   date,
   lastUpdated
@@ -39,39 +39,79 @@ function formatDate(d) {
   </head>
 
   <body>
-    <header class="header">
-      <div class="center">
-        <img src="/banner.png" alt="KindScript banner" class="logo-banner" />
-        <p class="tagline">
-          Helping you get through the hard parts of healthcare — one script at a time.
-        </p>
-      </div>
-      <nav class="navbar">
-        <div class="nav-links">
-          <a 
-            href="/"
-            class={Astro.url.pathname === "/" ? "active" : ""}
-            aria-current={Astro.url.pathname === "/" ? "page" : undefined}
-          >
-            Home
-          </a>
-          <a 
-            href="/tools"
-            class={Astro.url.pathname === "/tools" ? "active" : ""}
-            aria-current={Astro.url.pathname === "/tools" ? "page" : undefined}
-          >
-            Tools
-          </a>
-          <a
-            href="/about"
-            class={Astro.url.pathname === "/about" ? "active" : ""}
-            aria-current={Astro.url.pathname === "/about" ? "page" : undefined}
-          >
-            About
-          </a>
+<header class="header">
+  <div class="header-inner">
+    <div class="center">
+      <img src="/banner.png" alt="KindScript banner" class="logo-banner" />
+      <p class="tagline">
+        Helping you get through the hard parts of healthcare — one script at a time.
+      </p>
+    </div>
+
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="/"
+           class={Astro.url.pathname === "/" ? "active" : ""}
+           aria-current={Astro.url.pathname === "/" ? "page" : undefined}>
+          🏠 Home
+        </a>
+
+        <a href="/about"
+           class={Astro.url.pathname === "/about" ? "active" : ""}
+           aria-current={Astro.url.pathname === "/about" ? "page" : undefined}>
+          ℹ️ About
+        </a>
+
+        <a href="/blog"
+           class={Astro.url.pathname === "/blog" ? "active" : ""}
+           aria-current={Astro.url.pathname === "/blog" ? "page" : undefined}>
+          📝 Blog
+        </a>
+
+        <a href="/how-to-use"
+            class={Astro.url.pathname === "/how-to-use" ? "active" : ""}
+            aria-current={Astro.url.pathname === "/how-to-use" ? "page" : undefined}>
+          🧭 How To Use
+        </a>
+
+        <!-- Tools dropdown -->
+        <div class="dropdown">
+          <button class={`dropbtn ${Astro.url.pathname.startsWith('/tools') || Astro.url.pathname.startsWith('/messages') ? 'active' : ''}`}>
+            🧰 Tools ▾
+          </button>
+          <div class="dropdown-content">
+            <a href="/tools">🧰 All Scripts</a>
+            <a href="/scripts/messages">💬 Quick Messages</a>
+          </div>
         </div>
-      </nav>
-    </header>
+
+        <!-- Downloads dropdown -->
+        <div class="dropdown">
+          <button class={`dropbtn ${Astro.url.pathname.startsWith('/downloads') ? 'active' : ''}`}>
+            📥 Downloads ▾
+          </button>
+          <div class="dropdown-content">
+            <a href="/downloads">📥 All Downloads</a>
+            <a href="/downloads/pdfs">📄 PDFs</a>
+            <a href="/downloads/templates">🗂️ Templates</a>
+            <a href="/downloads/csvs">📊 CSVs</a>
+            <a href="/downloads/notion">🗒️ Notion</a>
+          </div>
+        </div>
+
+        <!-- Resources dropdown -->
+        <div class="dropdown">
+          <button class={`dropbtn ${Astro.url.pathname.startsWith('/resources') || Astro.url.pathname.startsWith('/blog') ? 'active' : ''}`}>
+            📚 Resources ▾
+          </button>
+          <div class="dropdown-content">
+            <a href="/resources">🔗 External Links</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
 
     <main>
       <slot />

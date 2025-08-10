@@ -63,8 +63,8 @@ function formatDate(d) {
         </a>
 
         <a href="/blog"
-           class={Astro.url.pathname === "/blog" ? "active" : ""}
-           aria-current={Astro.url.pathname === "/blog" ? "page" : undefined}>
+          class={Astro.url.pathname.startsWith("/blog") ? "active" : ""}
+          aria-current={Astro.url.pathname.startsWith("/blog") ? "page" : undefined}>
           📝 Blog
         </a>
 
@@ -101,7 +101,7 @@ function formatDate(d) {
 
         <!-- Resources dropdown -->
         <div class="dropdown">
-          <button class={`dropbtn ${Astro.url.pathname.startsWith('/resources') || Astro.url.pathname.startsWith('/blog') ? 'active' : ''}`}>
+          <button class={`dropbtn ${Astro.url.pathname.startsWith('/resources') ? 'active' : ''}`}>
             📚 Resources ▾
           </button>
           <div class="dropdown-content">

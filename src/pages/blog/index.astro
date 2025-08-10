@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+
+const title = "KindScript Blog – Updates & Guides";
+const description = "Gentle tips, updates, and thoughtful guides — from the team behind KindScript.";
+const keywords = "kindscript blog, patient advocacy, health tools, insurance help, medical visit tips";
+const author = "KindScript";
+const date = "2025-08-10";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="tool-page">
+    <h1>📰 KindScript Blog</h1>
+
+    {posts.length === 0 ? (
+      <p>
+        We're working on a collection of gentle, practical posts to help you navigate care with more clarity and confidence.<br />
+        Check back soon!
+      </p>
+    ) : (
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a><br />
+            <small>{post.data.date}</small><br />
+            <p style="margin-top: 0.25rem;">{post.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <div style="margin-top: 3rem;">
+      <a href="/">← Back to homepage</a>
+    </div>
+  </div>
+
+  <style>
+    .post-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 2rem;
+    }
+
+    .post-list li {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .post-list a {
+      font-weight: bold;
+      font-size: 1.125rem;
+      color: var(--accent, #000);
+      text-decoration: underline;
+    }
+
+    .post-list small {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</BaseLayout>

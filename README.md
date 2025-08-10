@@ -31,7 +31,7 @@ Offers a collection of ready-to-use messages for common situations — like chec
 Gently drafts a letter to appeal an insurance denial. Includes both a **professional** and a **gentler** tone option, so you can match the style to your needs.
 
 ### 📓 Pain & Fatigue Journal 🆕
-Lets you log symptoms, triggers, severity, and impact on daily life. Use it to spot patterns over time or share details with your care team. Available as a Notion template, or .csv file.
+Lets you log symptoms, triggers, severity, and impact on daily life. Use it to spot patterns over time or share details with your care team. Available as a Notion template, a .csv file, or a multi-page printable PDF.
 
 ### 🏥 Work Accommodation Request Tool 🆕
 Helps you request time off, reduced hours, or temporary support from your workplace, school, or program — with language that’s clear, respectful, and easy to customize.

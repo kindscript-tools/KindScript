@@ -16,7 +16,13 @@ if (!addButton || !medsContainer || !generateBtn || !outputField) {
       <input type="text" placeholder="e.g. Zyrtec" class="med-name" />
       <input type="text" placeholder="10 mg" class="med-dosage" />
       <input type="text" placeholder="Once daily" class="med-frequency" />
-      <button type="button" class="remove-med" aria-label="Remove">❌</button>
+      <button type="button" class="btn-add remove-med" aria-label="Remove">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+        Remove
+      </button>
     `;
     medsContainer.appendChild(row);
   }
@@ -25,8 +31,9 @@ if (!addButton || !medsContainer || !generateBtn || !outputField) {
   addButton.addEventListener('click', addMedicationRow);
 
   medsContainer.addEventListener('click', (e) => {
-    if (e.target.classList.contains('remove-med')) {
-      e.target.parentElement.remove();
+    const button = e.target.closest('.remove-med');
+    if (button) {
+      button.parentElement.remove();
     }
   });
 
@@ -77,8 +84,8 @@ if (!addButton || !medsContainer || !generateBtn || !outputField) {
               padding: 2rem;
             }
             pre {
-              white-space: pre-wrap; /* preserves formatting but wraps lines */
-              word-wrap: break-word; /* breaks long words if needed */
+              white-space: pre-wrap;
+              word-wrap: break-word;
             }
           </style>
         </head>

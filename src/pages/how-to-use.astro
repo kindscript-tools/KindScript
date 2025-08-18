@@ -1,15 +1,22 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayoutV2.astro';
 
 const title = "How to Use KindScript – KindScript";
 const description = "A quick guide to getting the most out of KindScript’s healthcare tools — for patients, caregivers, and anyone navigating medical bureaucracy.";
 const keywords = "how to use KindScript, healthcare tools, patient advocacy, medical scripts, caregiving help";
 const author = "KindScript";
 const date = "2025-08-08";
-const lastUpdated = "2025-08-08";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="tool-page">
     <h1>🧭 How to Use KindScript</h1>
     <p>KindScript is here for the moments when you need to say something important about your health — but your brain is already full, your heart is pounding, or you’re just plain tired. These tools help you <strong>find the words</strong> so you can focus on what matters.</p>
@@ -66,14 +73,14 @@ const lastUpdated = "2025-08-08";
     <h2>💡 Remember</h2>
     <p>You don’t have to be perfect, formal, or “professional” to get the care you need. Clear and honest is enough. And you don’t have to do it all at once — even a small step forward is progress.</p>
 
-    <hr class="tool-divider">
+<hr class="tool-divider">
 
-    <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
-      📌 Feeling overwhelmed right now? Visit our <a href="/what-to-do">What to Do</a> page for quick, situation-based guidance.
-    </p>
+    <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
+  📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
+</p>
   </div>
 
-  <div style="margin-top: 3rem;">
-    <a href="/">← Back to the KindScript homepage</a>
+  <div style="margin-top: 2rem;">
+    <a href="/tools">← Back to all tools</a>
   </div>
 </BaseLayout>

@@ -1,0 +1,67 @@
+---
+import BrandHeader from '../components/BrandHeader.astro';
+
+const {
+  title = "KindScript",
+  description = "Tools for when the system gets in the way of the care you deserve.",
+  keywords = "kindscript, patient tools, symptom summary, refill request, insurance appeal",
+  author = "KindScript",
+  date = "",
+  lastUpdated = ""
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+    <meta name="date" content={date} />
+    <meta name="last-modified" content={lastUpdated} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/kslogo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styles/global-v2.css" />
+  </head>
+
+  <body>
+    <header>
+      <BrandHeader />
+      <nav class="navbar">
+        <a href="/">🏠 Home</a>
+        <a href="/about">👋 About</a>
+        <a href="/blog">📝 Blog</a>
+        <a href="/how-to-use">🧭 How to Use</a>
+        <a href="/tools">🧰 Tools</a>
+        <a href="/downloads">📥 Downloads</a>
+        <a href="/resources">📚 Resources</a>
+      </nav>
+
+    </header>
+
+    <main>
+      <div class="main-wrapper">
+        <slot />
+      </div>
+    </main>
+
+    <footer>
+      {lastUpdated && (
+        <p style="text-align: center; font-size: 0.875rem; color: #6b7280;">
+          🕓 Last updated: {lastUpdated}
+        </p>
+      )}
+      <p style="text-align: center; font-size: 0.875rem; color: #999;">
+        © {new Date().getFullYear()} KindScript. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>

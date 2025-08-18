@@ -1,18 +1,28 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayoutV2.astro";
 
 const title = "All Downloads & Templates – KindScript";
 const description = "Browse all printable PDFs, Notion templates, and CSV files to help you prep, track, and share what matters.";
 const keywords = "KindScript downloads, templates, downloadable, printable, PDFs, Notion, CSV, tools, patient tools, healthcare scripts, symptom summary, medication list, refill request, insurance appeal, work accommodation";
 const author = "KindScript";
-
-// Set these to your real dates
 const date = "2025-08-01";
-const lastUpdated = "2025-08-10";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="section">
+  <h1>📎 Downloads</h1>
+<p>
+Here’s a growing set of free resources to help with the day-to-day stuff — from organizing your meds to tracking symptoms or getting ready for appointments. Download a printable, open a spreadsheet, or duplicate a Notion tracker — whatever works best for you.
+</p>
+<hr class="tool-divider">
     <h2>💊 Medication & Daily Care</h2>
     <ul>
         <li>
@@ -31,7 +41,7 @@ const lastUpdated = "2025-08-10";
         </li>
     </ul>
   </div>
-
+<hr class="tool-divider">
   <div class="section">
     <h2>✉️ Letters & Requests</h2>
     <ul>
@@ -40,7 +50,7 @@ const lastUpdated = "2025-08-10";
       </li>
     </ul>
   </div>
-
+<hr class="tool-divider">
   <div class="section">
     <h2>📓 Journals & Logs</h2>
     <ul>
@@ -59,11 +69,14 @@ const lastUpdated = "2025-08-10";
     </ul>
   </div>
 
-  <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+<hr class="tool-divider">
+
+    <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
   📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
 </p>
+  </div>
 
-  <div class="section" style="border-bottom: none; margin-bottom: 0;">
-    <a href="/">← Back to the KindScript homepage</a>
+  <div style="margin-top: 2rem;">
+    <a href="/tools">← Back to all tools</a>
   </div>
 </BaseLayout>

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayoutV2.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -18,9 +18,14 @@ if (!post) {
 
 const { Content } = await post.render();
 const { title, date, description } = post.data;
+const author = "KindScript";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  author={author}
+>
   <article class="blog-post">
     <h1>{title}</h1>
     <p class="post-meta">🗓️ {date}</p>
@@ -28,7 +33,7 @@ const { title, date, description } = post.data;
     <Content />
   </article>
 
-  <div style="margin-top: 3rem;">
+  <div style="margin-top: 2rem;">
     <a href="/blog">← Back to blog index</a>
   </div>
 

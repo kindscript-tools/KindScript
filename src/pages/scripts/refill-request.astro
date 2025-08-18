@@ -1,15 +1,22 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayoutV2.astro';
 
 const title = "Prescription Refill Request Tool – KindScript";
 const description = "Create a clear, polite message to request a medication refill — for yourself or someone you’re supporting.";
 const keywords = "prescription refill, refill request, medication letter, patient tool";
 const author = "KindScript";
 const date = "2025-08-06";
-const lastUpdated = "2025-08-06";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="tool-page">
     <h1>💊 Prescription Refill Request Generator</h1>
     <p>A template to help you ask for a medication refill — clearly and respectfully — when you’re running low or need to explain why it’s important.</p>
@@ -96,14 +103,12 @@ Jordan Reyes</pre>
       <button id="download-btn" class="btn dark">Download as .txt</button>
     </div>
   </div>
-
-  <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+   <hr class="tool-divider">
+  <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
   📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
 </p>
 
-   <hr class="tool-divider">
-
-  <div style="margin-top: 3rem;">
+  <div style="margin-top: 2rem;">
     <a href="/tools">← Back to all tools</a>
   </div>
 

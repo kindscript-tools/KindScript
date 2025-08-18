@@ -1,8 +1,22 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayoutV2.astro";
+
+const title = "Suggest a Tool – KindScript";
+const description = "Have an idea for a new script or resource? Let us know what would help you most when navigating doctor visits, insurance, medications, or more.";
+const keywords = "Kindscript tool, suggest a tool, request a feature, patient support ideas, KindScript feedback, healthcare script request, user suggestions, medical form ideas";
+const author = "KindScript";
+const date = "2025-08-01";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title="Suggest a Script – KindScript">
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <h1>💡 Suggest a New Script or Tool</h1>
   <p class="tagline">
     No name or email required. Nothing is saved beyond your submission.
@@ -42,8 +56,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       v();
     }
   </script>
+<hr class="tool-divider">
 
-  <div style="margin-top: 3rem;">
-  <a href="/">← Back to the KindScript homepage</a>
-</div>
+    <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
+  📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
+</p>
+  </div>
+
+  <div style="margin-top: 2rem;">
+    <a href="/tools">← Back to all tools</a>
+  </div>
 </BaseLayout>

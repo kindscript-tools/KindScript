@@ -1,15 +1,22 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayoutV2.astro';
 
 const title = "Insurance Appeal Letter Generator – KindScript";
 const description = "Create a clear, respectful insurance appeal letter to advocate for the treatment, test, or medication you need.";
 const keywords = "insurance appeal, denial letter, healthcare scripts, medical insurance, claim support";
 const author = "KindScript";
 const date = "2025-08-06";
-const lastUpdated = "2025-08-06";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="tool-page">
     <h1>📄 Insurance Appeal Letter Generator</h1>
     <p>A template to help you respond when your insurance denies coverage — so you can explain what happened, why it matters, and ask them to reconsider.</p>
@@ -92,8 +99,10 @@ Jordan Reyes
   <input type="text" id="denialDate" placeholder="e.g. August 4, 2025">
 </label>
 
-<label for="deniedItem">What was denied?</label>
-<small class="helper-text">Name the test, medication, or procedure exactly as it appears in the denial letter.</small>
+<div class="label-group">
+  <label for="deniedItem">What was denied?</label>
+  <small class="helper-text">Name the test, medication, or procedure exactly as it appears in the denial letter.</small>
+</div>
 <textarea id="deniedItem" required placeholder="e.g. MRI of my lower spine"></textarea>
 
 <label>
@@ -101,8 +110,10 @@ Jordan Reyes
   <textarea id="denialReason" placeholder="e.g. Stated as 'Not medically necessary' in denial letter"></textarea>
 </label>
 
-<label for="medicalNeed">Why do you need this?</label>
-<small class="helper-text">Explain symptoms, attempts at treatment, and your doctor's recommendation.</small>
+<div class="label-group">
+  <label for="medicalNeed">Why do you need this?</label>
+  <small class="helper-text">Explain symptoms, attempts at treatment, and your doctor's recommendation.</small>
+</div>
 <textarea id="medicalNeed" required placeholder="e.g. I’ve tried physical therapy and medication without improvement. My doctor believes this MRI is essential to determine the next steps."></textarea>
 
 <label>
@@ -143,12 +154,12 @@ Jordan Reyes
       <button id="download-btn" class="btn dark">Download as .txt</button>
     </div>
   </div>
-
-  <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+<hr class="tool-divider">
+  <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
   📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
 </p>
 
-  <div style="margin-top: 3rem;">
+  <div style="margin-top: 2rem;">
     <a href="/tools">← Back to all tools</a>
   </div>
 

@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayoutV2.astro';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog');
@@ -8,10 +8,18 @@ const title = "KindScript Blog – Updates & Guides";
 const description = "Gentle tips, updates, and thoughtful guides — from the team behind KindScript.";
 const keywords = "kindscript blog, patient advocacy, health tools, insurance help, medical visit tips";
 const author = "KindScript";
-const date = "2025-08-10";
+const date = "2025-08-09";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="tool-page">
     <h1>📰 KindScript Blog</h1>
 
@@ -31,11 +39,6 @@ const date = "2025-08-10";
         ))}
       </ul>
     )}
-
-    <div style="margin-top: 3rem;">
-      <a href="/">← Back to homepage</a>
-    </div>
-  </div>
 
   <style>
     .post-list {
@@ -62,4 +65,13 @@ const date = "2025-08-10";
       font-size: 0.9rem;
     }
   </style>
+
+
+  <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
+  📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
+</p>
+
+  <div style="margin-top: 2rem;">
+    <a href="/tools">← Back to all tools</a>
+  </div>
 </BaseLayout>

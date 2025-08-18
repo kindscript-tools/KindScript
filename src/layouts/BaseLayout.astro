@@ -22,31 +22,36 @@ function formatDate(d) {
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-    <meta name="author" content={author} />
-    {date && <meta name="date" content={date} />}
-    {lastUpdated && <meta name="last-modified" content={lastUpdated} />}
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" href="/favicon-180x180.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-  </head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content={author} />
+      {date && <meta name="date" content={date} />}
+      {lastUpdated && <meta name="last-modified" content={lastUpdated} />}
+
+      <!-- ✅ Font update -->
+      <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+      <!-- Icons -->
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" href="/favicon-180x180.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+    </head>
 
   <body>
-<header class="header">
-  <div class="header-inner">
-    <div class="center">
-      <img src="/banner.png" alt="KindScript banner" class="logo-banner" />
-      <p class="tagline">
-        Helping you get through the hard parts of healthcare — one script at a time.
-      </p>
+  <div class="branding">
+    <img src="/banner.png" alt="KindScript – Tools for when the system gets in the way of the care you deserve" class="logo-banner" />
+
+    <div class="tagline">
+      <h1 class="visually-hidden">KindScript</h1>
+      <p class="sub-sub-tagline">Helping you get through the hard parts of healthcare — one script at a time.</p>
     </div>
+  </div>
 
     <nav class="navbar">
       <div class="nav-links">

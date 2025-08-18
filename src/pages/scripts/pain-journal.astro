@@ -1,15 +1,22 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayoutV2.astro';
 
 const title = "Pain & Fatigue Journal Tool – KindScript";
 const description = "Track daily symptoms, triggers, and impact with this private, printable pain and fatigue journal.";
 const keywords = "pain journal, fatigue tracking, health journal, Notion template, symptom tracker, patient tool";
 const author = "KindScript";
 const date = "2025-08-06";
-const lastUpdated = "2025-08-10";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="tool-page">
     <h1>📓 Pain & Fatigue Journal</h1>
     <p>A simple tool to help you log your symptoms day to day — especially if they’re hard to describe or seem to come and go.</p>
@@ -30,7 +37,7 @@ const lastUpdated = "2025-08-10";
 
     <hr class="tool-divider">
 
-<h3>📝 Example output</h3>
+<h2>📝 Example output</h2>
 <p><strong>Detailed format:</strong></p>
 <pre class="output-box">
 Date: 2025-08-06
@@ -126,33 +133,27 @@ Notes: similar to last week’s episode</pre>
       <button id="download-btn" class="btn dark">Download as .txt</button>
     </div>
         <hr class="tool-divider">
-    <div class="download-section" style="margin-top: 1rem;">
-      <a
-        href="/downloads/Pain_Fatigue_Journal.pdf"
-        class="btn"
-        download
-        style="background: #eee; color: #111; border: 1px solid #ccc; display: inline-block; margin-bottom: 0.5rem;"
-      >
-        📝 Download the Pain & Fatigue Journal (PDF)
-      </a>
-      <p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0;">
-        A printable version of our daily tracker, weekly reflection, monthly symptom calendar, and extra lined page for notes — designed to support you, not overwhelm you.<br />
-        <em>(v1.0 – Aug 2025)</em>
-      </p>
-    </div>
+    <div class="download-section" style="margin-top: 0rem;">
+      <h2 style="margin-bottom: 1.2rem;">📥 Downloads</h2>
+      <div style="margin-bottom: 1rem;">
+        <a href="/downloads/Pain_Fatigue_Journal.pdf" class="btn light" download>
+          📄 Download the Printable Version (PDF)
+        </a>
+        <p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0.25rem;">
+          📱 Already printed it? Scan the QR code at the bottom of the page anytime to grab a fresh copy or use the digital version.<br />
+          <em>(v1.0 – Aug 2025)</em>
+        </p>
+      </div>
 
-    <hr class="tool-divider">
-      <a
-  href="/downloads/Pain_Fatigue_Journal_Template.csv"
-  class="btn"
-  download
-  style="background: #eee; color: #111; border: 1px solid #ccc; display: inline-block; margin-bottom: 0.5rem;"
->
-  📊 Download the Pain & Fatigue Spreadsheet (CSV)
-</a>
-<p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0;">
-  Can be opened with Google Sheets, Excel, or any spreadsheet program.
-</p>
+      <div>
+        <a href="/downloads/Pain_Fatigue_Journal_Template.csv" class="btn light" download>
+          📊 Download the Spreadsheet Version (CSV)
+        </a>
+        <p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0.25rem;">
+          Can be opened with Google Sheets, Excel, or any spreadsheet program.
+        </p>
+      </div>
+    </div>
     <hr class="tool-divider">
 <p style="margin-top: 0;">
         Prefer a digital version? Use our
@@ -162,11 +163,11 @@ Notes: similar to last week’s episode</pre>
       </p>
     </div>
 <hr class="tool-divider">
-    <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+    <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
   📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
 </p>
 
-  <div style="margin-top: 3rem;">
+  <div style="margin-top: 2rem;">
     <a href="/tools">← Back to all tools</a>
   </div>
 

@@ -1,20 +1,28 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayoutV2.astro";
 
 const title = "All Tools & Scripts – KindScript";
 const description = "Browse every KindScript tool: Symptom Summary, Medication List, Prescription Refill Request, Insurance Appeal, Work Accommodation, Quick Messages, and Pain & Fatigue Journal. Private, printable, and easy to use.";
 const keywords = "KindScript tools, patient tools, healthcare scripts, symptom summary, medication list, refill request, insurance appeal, work accommodation, quick messages, journal, pain journal, patient portal";
 const author = "KindScript";
-
 const date = "2025-08-01";       // first publish date of the Tools page
-const lastUpdated = "2025-08-09"; // update when you add/edit tools
+const lastUpdated = "2025-08-18"; // update when you add/edit tools
 ---
 
-<BaseLayout title="KindScript Tools – Navigate care with confidence" description="Scripts and printable tools to help with doctor visits, medications, insurance appeals, and more.">
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="section">
     <h1>🧰 All Tools & Scripts</h1>
     <p>Here’s the full list of what’s ready to use. Everything is private by design — nothing is stored or transmitted.</p>
   </div>
+
+  <hr class="tool-divider">
 
   <div class="section">
     <h2>🩺 Doctor Visit Prep</h2>
@@ -39,7 +47,7 @@ const lastUpdated = "2025-08-09"; // update when you add/edit tools
       </li>
     </ul>
   </div>
-
+<hr class="tool-divider">
   <div class="section">
     <h2>📄 Insurance & Access</h2>
     <ul>
@@ -49,7 +57,7 @@ const lastUpdated = "2025-08-09"; // update when you add/edit tools
       </li>
     </ul>
   </div>
-
+<hr class="tool-divider">
   <div class="section">
     <h2>🧳 Work & Leave Support</h2>
     <ul>
@@ -60,7 +68,7 @@ const lastUpdated = "2025-08-09"; // update when you add/edit tools
       </li>
     </ul>
   </div>
-
+<hr class="tool-divider">
   <div class="section">
     <h2>🧠 Daily Management</h2>
     <ul>
@@ -71,7 +79,7 @@ const lastUpdated = "2025-08-09"; // update when you add/edit tools
       </li>
     </ul>
   </div>
-
+<hr class="tool-divider">
   <div class="section">
     <h2>🤝 Support for Loved Ones</h2>
     <ul>
@@ -82,11 +90,14 @@ const lastUpdated = "2025-08-09"; // update when you add/edit tools
     </ul>
   </div>
 
-  <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+<hr class="tool-divider">
+
+    <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
   📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
 </p>
+  </div>
 
-  <div class="section" style="border-bottom: none; margin-bottom: 0;">
-    <a href="/">← Back to the KindScript homepage</a>
+  <div style="margin-top: 2rem;">
+    <a href="/tools">← Back to all tools</a>
   </div>
 </BaseLayout>

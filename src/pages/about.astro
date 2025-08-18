@@ -1,10 +1,24 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayoutV2.astro';
+
+const title = "About – KindScript";
+const description = "Learn more about KindScript — a growing set of tools and templates to help patients and caregivers communicate clearly in healthcare settings.";
+const keywords = "KindScript, about KindScript, healthcare tools, medical communication, patient resources, refill scripts, insurance appeal, work notes, symptom summary";
+const author = "KindScript";
+const date = "2025-08-06";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title="About KindScript" description="Why KindScript exists and what it hopes to offer.">
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="section">
-    <h2>💡 What is KindScript?</h2>
+    <h1>💡 What is KindScript?</h1>
     <p>
       KindScript is a small set of tools to help patients and caregivers handle the most frustrating parts of healthcare — like keeping track of symptoms, medications, or refilling prescriptions — with a little more ease and clarity.
     </p>
@@ -23,17 +37,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       These tools are for support, not diagnosis. Always consult a healthcare professional if you're unsure or unwell.
     </p>
 
-    <h2>🤝 Built with Care</h2>
+    <h2>❤️ Made by someone who's been there</h2>
     <p>
-      KindScript is an independent project made to help people feel a little more equipped and a little less overwhelmed. If it helped you — or if you have ideas — <a href="/suggest">we’d love to hear from you</a>.
+      KindScript is an independent project created by a patient and caregiver who knows how exhausting the system can be — and how helpful the right words can be when you're dealing with it. If it helped you — or if you have ideas — <a href="/suggest">we’d love to hear from you</a>.
     </p>
 
-    <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+<hr class="tool-divider">
+
+    <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
   📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
 </p>
   </div>
 
-<div style="margin-top: 3rem;">
-  <a href="/">← Back to the KindScript homepage</a>
-</div>
+  <div style="margin-top: 2rem;">
+    <a href="/tools">← Back to all tools</a>
+  </div>
 </BaseLayout>

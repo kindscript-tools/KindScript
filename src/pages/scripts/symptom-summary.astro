@@ -1,15 +1,22 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayoutV2.astro';
 
 const title = "Symptom Summary Tool – KindScript";
 const description = "Generate a clear, concise summary of your symptoms to share with healthcare providers.";
 const keywords = "symptom summary, patient tool, healthcare scripts, medical visit prep";
 const author = "KindScript";
 const date = "2025-08-06";
-const lastUpdated = "2025-08-06";
+const lastUpdated = "2025-08-17";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="tool-page">
     <h1>📝 Symptom Summary</h1>
 
@@ -34,7 +41,7 @@ const lastUpdated = "2025-08-06";
 
     <hr class="tool-divider">
 
-    <h3>📝 Example output</h3>
+    <h2>📝 Example output</h2>
     <p><strong>Friendly style:</strong></p>
     <pre class="output-box">Over the past few weeks, I’ve had daily fatigue and headaches that are affecting my ability to focus and work. I’ve tried adjusting my sleep and reducing screen time, but it hasn’t helped. I’d like to discuss possible causes and treatment options.</pre>
 
@@ -46,7 +53,6 @@ const lastUpdated = "2025-08-06";
     🙋 Hoping to discuss causes + treatment options</pre>
 
     <hr class="tool-divider">
-
     <div class="section tool-form">
       <div class="form-inner">
         <form id="symptom-form">
@@ -102,13 +108,13 @@ const lastUpdated = "2025-08-06";
     </div>
   </div>
 
-  <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+  <hr class="tool-divider">
+
+  <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
   📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
 </p>
 
- <hr class="tool-divider">
-
-  <div style="margin-top: 3rem;">
+  <div style="margin-top: 2rem;">
     <a href="/tools">← Back to all tools</a>
   </div>
 

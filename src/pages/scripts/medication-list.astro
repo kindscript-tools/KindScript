@@ -1,15 +1,22 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayoutV2.astro';
 
 const title = "Medication List Organizer – KindScript";
 const description = "Build a clear, printable list of your current medications to bring to appointments or share with your care team.";
 const keywords = "medication list, prescription tracking, healthcare organization, medical records";
 const author = "KindScript";
 const date = "2025-08-06";
-const lastUpdated = "2025-08-06";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="section">
     <h1>💊 Current Medications</h1>
     <p>This tool helps you prepare a medication list to bring to medical appointments. You can list prescription meds, OTC items, and supplements — and then copy, print, or download it.</p>
@@ -30,7 +37,7 @@ const lastUpdated = "2025-08-06";
 
     <hr class="tool-divider">
 
-    <h3>📝 Example output</h3>
+    <h2>📝 Example output</h2>
     <pre class="output-box">
 Name: Jamie R.
 Date: 2025-08-01
@@ -49,11 +56,15 @@ Supplements: Vitamin D, Magnesium</pre>
           <label for="date">Date</label>
           <input type="date" id="date" />
 
-          <div class="form-section-label">💊 Medications</div>
+          <label for="medications" class="form-section-label">💊 Medications</label>
           <div id="medications"></div>
           <div style="margin-top: 0.25rem; margin-bottom: 0.5rem;">
-            <button type="button" id="add-medication" class="btn subtle">
-              + Add another medication
+            <button type="button" id="add-medication" class="btn-add">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              Add another medication
             </button>
           </div>
 
@@ -80,33 +91,27 @@ Supplements: Vitamin D, Magnesium</pre>
       <button type="button" id="download-btn" class="btn dark">Download as .txt</button>
     </div>
         <hr class="tool-divider">
-    <div class="download-section" style="margin-top: 1rem;">
-      <a
-        href="/downloads/Medication-List.pdf"
-        class="btn"
-        download
-        style="background: #eee; color: #111; border: 1px solid #ccc; display: inline-block; margin-bottom: 0.5rem;"
-      >
-        📄 Download the Printable Version (PDF)
-      </a>
-      <p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0;">
-        📱 Already printed it? Scan the QR code at the bottom of the page anytime to grab a fresh copy or use the digital version.<br />
-        <em>(v1.0 – Aug 2025)</em>
-      </p>
-    </div>
+    <div class="download-section" style="margin-top: 0rem;">
+      <h2 style="margin-bottom: 1.2rem;">📥 Downloads</h2>
+      <div style="margin-bottom: 1rem;">
+        <a href="/downloads/Medication-List.pdf" class="btn light" download>
+          📄 Download the Printable Version (PDF)
+        </a>
+        <p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0.25rem;">
+          📱 Already printed it? Scan the QR code at the bottom of the page anytime to grab a fresh copy or use the digital version.<br />
+          <em>(v1.0 – Aug 2025)</em>
+        </p>
+      </div>
 
-    <hr class="tool-divider">
-      <a
-  href="/downloads/medication-supplement-tracker.csv"
-  class="btn"
-  download
-  style="background: #eee; color: #111; border: 1px solid #ccc; display: inline-block; margin-bottom: 0.5rem;"
->
-  📊 Download the Spreadsheet Version (CSV)
-</a>
-<p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0;">
-  Can be opened with Google Sheets, Excel, or any spreadsheet program.
-</p>
+      <div>
+        <a href="/downloads/Medication_Supplement_Tracker.csv" class="btn light" download>
+          📊 Download the Spreadsheet Version (CSV)
+        </a>
+        <p class="printable-note" style="font-size: 0.9rem; color: #444; margin-top: 0.25rem;">
+          Can be opened with Google Sheets, Excel, or any spreadsheet program.
+        </p>
+      </div>
+    </div>
     <hr class="tool-divider">
 <p style="margin-top: 0;">
         Prefer a digital version? Use our
@@ -115,12 +120,12 @@ Supplements: Vitamin D, Magnesium</pre>
         </a> — just click <strong>“Duplicate”</strong> in the top-right to save a copy to your workspace.
       </p>
     </div>
-
-    <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+    <hr class="tool-divider">
+    <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
   📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
 </p>
 
-  <div style="margin-top: 3rem;">
+  <div style="margin-top: 2rem;">
     <a href="/tools">← Back to all tools</a>
   </div>
 

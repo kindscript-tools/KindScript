@@ -1,15 +1,22 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayoutV2.astro';
 
 const title = "Quick Messages – KindScript";
 const description = "Swipe‑file style messages for common healthcare asks: labs/tests, meds, symptoms, treatment, insurance, and work/leave.";
 const keywords = "quick messages, healthcare templates, portal message, lab results, medication question, treatment options, insurance note, FMLA, accommodation";
 const author = "KindScript";
 const date = "2025-08-06";
-const lastUpdated = "2025-08-09";
+const lastUpdated = "2025-08-18";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="tool-page">
     <h1>⚡ Quick Messages</h1>
     <p>Pick a category, choose a message, add a detail or two, and copy a ready‑to‑send note for your clinic, portal, or insurer.</p>
@@ -34,7 +41,7 @@ const lastUpdated = "2025-08-09";
 
     <hr class="tool-divider">
 
-    <h3>📝 Example output</h3>
+    <h2>📝 Example output</h2>
     <pre class="output-box">Hi,
 
 I’m checking in to see if the results for my blood work from Aug 5 are available yet.
@@ -85,7 +92,7 @@ Jordan Reyes</pre>
       <hr class="tool-divider">
     </div>
 
-    <h2>📋 Message</h2>
+    <h2>📋 Generated Message</h2>
     <p>You can copy, print, or download — whatever works best.</p>
     <div id="qmOutput" class="output-box" contenteditable="true" role="textbox" aria-label="Generated message">
       (Choose a category and message, then click Generate)
@@ -97,13 +104,13 @@ Jordan Reyes</pre>
       <button id="download-btn" class="btn dark">Download as .txt</button>
     </div>
 
-    <p style="font-size: 0.9rem; text-align: center; margin-top: 2rem;">
+        <hr class="tool-divider">
+
+    <p style="font-size: 0.875rem; text-align: center; margin-top: 2rem;">
   📌 Want to get the most out of this tool? Visit <a href="/how-to-use">How to Use KindScript</a>.
 </p>
 
-    <hr class="tool-divider">
-
-  <div style="margin-top: 3rem;">
+  <div style="margin-top: 2rem;">
     <a href="/tools">← Back to all tools</a>
   </div>
 

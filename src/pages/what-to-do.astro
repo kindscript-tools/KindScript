@@ -1,15 +1,22 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayoutV2.astro';
 
 const title = "What to Do When You’re Overwhelmed – KindScript";
 const description = "A calm, plain-language guide for what to do when your insurance denies something, you're preparing for an appointment, or you’re supporting someone through a medical situation.";
 const keywords = "insurance denied, what to do, healthcare help, patient tools, overwhelmed, caregiving support";
 const author = "KindScript";
 const date = "2025-08-06";
-const lastUpdated = "2025-08-09";
+const lastUpdated = "2025-08-19";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  author={author}
+  date={date}
+  lastUpdated={lastUpdated}
+>
   <div class="tool-page">
     <h1>🧭 What to Do When You’re Overwhelmed</h1>
     <p>If you’re here, something’s probably gone sideways. Maybe your insurance denied coverage. Maybe you’re preparing for a scary appointment. Maybe you’re trying to help someone else and don’t know where to begin. This page is for you.</p>
